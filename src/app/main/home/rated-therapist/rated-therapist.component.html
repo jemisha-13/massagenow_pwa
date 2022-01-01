@@ -1,0 +1,356 @@
+<ng-container *ngIf="false">
+  <div class="therapist-wrapper">
+      <div class="container">
+          <div classs="row">
+              <div class="col-md-12 headerWeb location" id="myHeader">
+                  <!-- <i class="bi bi-arrow-left-short bi-icon-class backIcon" (click)="navigateBack()"></i> -->
+                  <div class="locationText" >{{theRapistDetails?.location[0]?.city}}</div>
+                  <!-- <div><i class="fa fa-heart heart"></i></div> -->
+              </div>
+          <div class="col-md-12 headerWeb referalSource" id="myHeader">
+              <!-- <i class="bi bi-arrow-left-short bi-icon-class backIcon" (click)="navigateBack()"></i> -->
+              <div class="locationText">{{theRapistDetails?.location[0]?.name}}</div>
+              <!-- <div><i class="fa fa-heart heart"></i></div>
+              -->
+          </div>
+
+          </div>
+      </div>
+
+
+          <div class="container">
+              <div class="mainTopImg">
+                  <div class="row web">
+                      <div class="col-md-6 mobile-pad">
+                          <div class="therapist-like" [ngClass]="{'active': this.theRapistDetails?.favFlag}" (click)="addTherapistToFavourite()">
+                            <i class="fa fa-heart"></i>
+                          </div>
+                          <div class="crd">
+                              <div class="imagebody-wrapper">
+                                  <div class="imagebody">
+                                      <img class="imgcover"
+                                      src="{{theRapistDetails?.profileImages[0]?.image}}">
+                                  </div>
+                              </div>
+                              <!-- <div class="footer-outer-wrapper">
+                                  <div class="footer">
+                                      <i class="bi bi-arrow-left-short bi-icon-class backIcon" (click)="navigateBack()"></i>
+                                      <i class="fa fa-venus gender"></i>
+                                      <div class="forget">{{theRapistDetails?.firstName}}</div>
+                                      <div><i class="fa fa-check-circle greenIcon"></i></div>
+                                  </div>
+                                  <div class="webfooter">
+                                      <i class="bi bi-arrow-left-short bi-icon-class backIcon" (click)="navigateBack()"></i>
+                                      <i class="fa fa-venus webgender"></i>
+                                      <div class="webforget">{{theRapistDetails?.firstName}}</div>
+                                      <i class="fa fa-check-circle webgreenIcon"></i>
+                                  </div>
+                              </div> -->
+                          </div>
+                      </div>
+                      <!-- <div class="footer-outer-wrapper">
+                        <div class="footer1">
+                            <i class="fa fa-venus gender"></i>
+                            <div class="forget">{{theRapistDetails?.firstName}}</div>
+                            <div><i class="fa fa-check-circle greenIcon"></i></div>
+                        </div>
+                        <div class="webfooter1">
+                            <i class="fa fa-venus webgender"></i>
+                            <div class="webforget">{{theRapistDetails?.firstName}}</div>
+                            <i class="fa fa-check-circle webgreenIcon"></i>
+                        </div>
+                      </div> -->
+                      <div class="therapist-block">
+                        <div class="therapist-name">
+                          <div class="therapist-icon">
+                            <i class="fa fa-venus"
+                            [ngClass]="{'gender': theRapistDetails?.gender == 'Male', 'webgender': theRapistDetails?.gender == 'Female'}"></i>
+                            <span class="forget">{{theRapistDetails?.firstName}}</span>
+                          </div>
+                          <i class="fa fa-check-circle greenIcon"></i>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6 profile">
+                          <div class="name">
+                              <h4>{{theRapistDetails?.firstName}}</h4>
+                          </div>
+                          <div class="hand">
+                              <button class="rise">Rising</button>
+                              <button class="new">New </button>
+                              <!-- <i class="fa fa-hand-paper-o hnd"></i> -->
+                              <div class="hand-image">
+                                  <img class="hnd-mobile" src="../../../../assets/images/palm.svg" alt="" >
+                                  <div class="centered">{{theRapistDetails?.level?.label}}</div>
+                              </div>
+                              <i class="fa fa-flag flag" aria-hidden="true"></i>
+                          </div>
+
+                          <div class="mainline"></div>
+
+                          <div class="therapist-detail-block">
+                              <div class="owner">
+                                  <div class="ownerIcon">
+                                      <i class="fa fa-briefcase"></i>
+                                  </div>
+                                  <div class="ownerText">
+                                      <p>{{theRapistDetails?.staffTitle}}</p>
+                                  </div>
+                              </div>
+
+                              <div class="owner">
+                                  <div class="ownerIcon">
+                                      <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                  </div>
+                                  <div class="ownerText">
+                                      <p>Booked {{theRapistDetails?.bookedTimes}} times</p>
+                                  </div>
+                              </div>
+
+                              <div class="owner">
+                                  <div class="ownerIcon">
+                                      <i class="fa fa-hourglass" aria-hidden="true"></i>
+                                  </div>
+                                  <div class="ownerText">
+                                      <p>Worked for {{hours}} hours</p>
+                                  </div>
+                              </div>
+
+                              <div class="owner">
+                                  <div class="ownerIcon">
+                                      <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                                  </div>
+                                  <div class="ownerText">
+                                      <p>Certifications {{theRapistDetails?.certificates?.length}}</p>
+                                  </div>
+                              </div>
+
+                              <div class="owner">
+                                  <div class="ownerIcon">
+                                      <i class="fa fa-user" aria-hidden="true"></i>
+                                  </div>
+                                  <div class="ownerText">
+                                      <p>{{theRapistDetails?.language}}</p>
+                                  </div>
+                              </div>
+
+                              <div class="owner">
+                                  <div class="ownerIcon">
+                                      <i class="fa fa-star" aria-hidden="true"></i>
+                                  </div>
+                                  <div class="ownerText">
+                                      <p>{{theRapistDetails?.rating?.star}} ({{theRapistDetails?.rating?.star_count}} ratings)</p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="bookNew">
+                              <button class="therapistNew">Book this Therapist</button>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="line"></div>
+
+                  <div class="therapist-detail-block">
+                      <p class="header-title">Introduction</p>
+                      <p>{{theRapistDetails?.descriptions}}</p>
+                  </div>
+
+                  <div class="line"></div>
+
+                  <div class="therapist-detail-block">
+                      <p class="header-title">Work For:</p>
+                  </div>
+                  <div class="workFor">
+                    <div class="imgSection">
+                        <div class="container">
+                            <div class="row">
+                                <div class="introMain-wrapper" *ngFor="let location of theRapistDetails?.location">
+                                    <!-- <div class="col-md-4"> -->
+                                        <div class="introImg">
+                                            <img class="imgcover"
+                                                src="{{location?.profileImg?.img}}">
+                                        </div>
+                                    <!-- </div> -->
+
+                                    <div class="col-md-81 work">
+                                        <p><b>{{location?.name}}</b></p>
+                                        <p class="shop-rating"><i class="fa fa-star" aria-hidden="true"></i>{{location?.rating?.star |number:'1.0-0'}}</p>
+                                        <p>{{location?.city}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+
+          <div class="book fixed-book" >
+              <button class="therapist">Book this Therapist</button>
+          </div>
+      </div>
+      </div>
+  </div>
+
+  <div class="container">
+      <div class="location-work">
+          <div class="outerScroll">
+              <div class="card-outer-wrapper" *ngFor="let location of theRapistDetails?.location">
+                  <div class="card">
+                      <div class="workImg">
+                          <img src="{{location?.profileImg?.img}}"   alt="...">
+                      </div>
+                      <div class="card-body">
+                      <h5 class="card-title">{{location?.name}}</h5>
+                      <p class="card-text"><i class="fa fa-star " aria-hidden="true"></i>{{location?.rating?.star |number:'1.0-0'}}</p>
+                      <h5 class="card-title-city">{{location?.city}}</h5>
+                      </div>
+                      <!-- <div class="km">
+                          <button class="tag">0.4 k.m</button>
+                      </div> -->
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</ng-container>
+
+<div class="container-fluid" [ngClass]="{'mobile-view': this.isMobile, 'desktop-view': !this.isMobile}">
+  <div class="therapist-header">
+    <div classs="row">
+      <div class="col-md-12 headerWeb location" id="myHeader">
+        <div class="locationText" >{{theRapistDetails?.location[0]?.city}}</div>
+      </div>
+      <div class="col-md-12 headerWeb referalSource" id="myHeader">
+        <div class="locationText">{{theRapistDetails?.location[0]?.name}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="therapistInfo">
+    <div class="row">
+      <div class="col-md-6">
+          <div class="therapist-like" [ngClass]="{'active': this.theRapistDetails?.favFlag}" (click)="addTherapistToFavourite()">
+            <i class="fa fa-heart"></i>
+          </div>
+          <div class="crd">
+              <div class="imagebody-wrapper">
+                  <div class="imagebody">
+                      <img class="imgcover" src="{{theRapistDetails?.profileImages[0]?.image}}">
+                  </div>
+              </div>
+          </div>
+          <div class="therapist-block">
+            <div class="therapist-name">
+              <div class="therapist-icon">
+                <i class="fa fa-venus"
+                [ngClass]="{'gender': theRapistDetails?.gender == 'Male', 'webgender': theRapistDetails?.gender == 'Female'}"></i>
+                <span class="forget">{{theRapistDetails?.firstName}}</span>
+              </div>
+              <div class="therapist-icons">
+                <span class="therapist-heart" [ngClass]="{'active': this.theRapistDetails?.favFlag}" (click)="addTherapistToFavourite()">
+                  <i class="fa fa-heart"></i>
+                </span>
+                <i class="fa fa-check-circle greenIcon"></i>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="col-md-6 profile">
+          <div class="name">
+              <h5>{{theRapistDetails?.firstName}}</h5>
+          </div>
+          <div class="hand">
+              <button class="rise">Rising</button>
+              <button class="new">New </button>
+              <div class="hand-image">
+                  <img class="hnd-mobile" src="../../../../assets/images/palm.svg" alt="" >
+                  <div class="centered">{{theRapistDetails?.level?.label}}</div>
+              </div>
+              <i class="fa fa-flag flag" aria-hidden="true"></i>
+          </div>
+          <div class="mainline"></div>
+          <div class="therapist-detail-block">
+              <div class="owner">
+                  <div class="ownerIcon">
+                      <i class="fa fa-briefcase"></i>
+                  </div>
+                  <div class="ownerText">
+                      <p>{{theRapistDetails?.staffTitle}}</p>
+                  </div>
+              </div>
+              <div class="owner">
+                  <div class="ownerIcon">
+                      <i class="fa fa-clock-o" aria-hidden="true"></i>
+                  </div>
+                  <div class="ownerText">
+                      <p>Booked {{theRapistDetails?.bookedTimes}} times</p>
+                  </div>
+              </div>
+              <div class="owner">
+                  <div class="ownerIcon">
+                      <i class="fa fa-hourglass" aria-hidden="true"></i>
+                  </div>
+                  <div class="ownerText">
+                      <p>Worked for {{hours}} hours</p>
+                  </div>
+              </div>
+              <div class="owner">
+                  <div class="ownerIcon">
+                      <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                  </div>
+                  <div class="ownerText therapist-rating">
+                      <p>Certifications {{theRapistDetails?.certificates?.length}}</p>
+                      <a href="javascript::">View</a>
+                  </div>
+              </div>
+              <div class="owner">
+                  <div class="ownerIcon">
+                      <i class="fa fa-user" aria-hidden="true"></i>
+                  </div>
+                  <div class="ownerText">
+                      <p>{{theRapistDetails?.language}}</p>
+                  </div>
+              </div>
+              <div class="owner">
+                  <div class="ownerIcon">
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                  </div>
+                  <div class="ownerText therapist-rating">
+                      <p>{{theRapistDetails?.rating?.star}} ({{theRapistDetails?.rating?.star_count}} ratings)</p>
+                      <a href="javascript::">View All</a>
+                  </div>
+              </div>
+          </div>
+          <div class="bookNew">
+              <button class="therapistNew" (click)="bookTherapist()">Book this Therapist</button>
+          </div>
+      </div>
+    </div>
+    <div class="therapist-info-block">
+      <p class="header-title">Introduction</p>
+      <p>{{theRapistDetails?.descriptions}}</p>
+    </div>
+    <div class="therapist-workfor">
+      <label class="header-title">Work For:</label>
+      <div class="workFor">
+        <div class="imgSection">
+            <div class="container1">
+                <div class="row">
+                    <div class="introMain-wrapper" *ngFor="let location of theRapistDetails?.location">
+                        <div class="introImg">
+                            <img class="imgcover"
+                                src="{{location?.profileImg?.img}}">
+                        </div>
+                        <div class="work">
+                            <p><b>{{location?.name}}</b></p>
+                            <p class="shop-rating"><i class="fa fa-star" aria-hidden="true"></i>{{location?.rating?.star |number:'1.0-0'}}</p>
+                            <p class="font-13">{{location?.city}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

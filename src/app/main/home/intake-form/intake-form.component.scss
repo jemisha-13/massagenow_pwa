@@ -1,0 +1,84 @@
+.coming-soon {
+  width: 400px !important;
+}
+
+.button-wrapper {
+  hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 2px solid rgb(0 0 0 / 41%);
+  }
+
+  .button-right {
+    margin: 10px 0px;
+    float: right;
+  }
+
+  .button-left {
+    margin: 10px 0px;
+    float: left;
+  }
+}
+
+.bs-stepper-content {
+  font-size: 13px;
+}
+
+input::placeholder{
+  font-size: 13px;
+}
+.question{
+  font-weight: bold;
+}
+.form-group {
+  margin-top: 0.3rem;
+}
+.massage-info-wrapper * {
+  margin-top: 0.2rem;
+  margin-bottom: 0;
+}
+.form-check {
+  display: flex;
+  align-items: center;
+}
+.bs-stepper-circle {
+  font-size: 12px;
+}
+.bs-stepper-label {
+  font-size: 15px;
+}
+.gender-wrapper label:first-child {
+  margin-left: 13px;
+}
+.modal-header h6 {
+  font-weight: 600;
+  font-size: 18px;
+}
+.signature-info {
+  font-size: 14px;
+  p{
+    border-bottom: 1px solid #c6c4c8;
+    padding-bottom: 9px;
+  }
+}
+hr{
+  margin: 0 !important;
+}
+.col-md-6{
+  padding: 0;
+}
+.gap-1{
+  gap: 1rem;
+}
+.gender-wrapper{
+  h6{
+    margin-bottom: 0;
+  }
+  label{
+    margin-left: 0 !important;
+  }
+  .container{
+    padding: 0 !important;
+  }
+}

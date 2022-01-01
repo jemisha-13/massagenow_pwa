@@ -1,0 +1,105 @@
+<div class="send-request-wrapper">
+  <div class="container">
+    <div class="request-detail-wrapper">
+      <div class="send-request-to requestInner-wrapper d-flex align-items-center">
+        <span>Send request to</span>
+        <h4 class="mb-0"> {{storeDetails.shopName}}</h4>
+      </div>
+      <div class="for-service requestInner-wrapper d-flex align-items-center">
+        <span>For service</span>
+        <h4 class="mb-0">{{storeDetails.serviceName}}</h4>
+      </div>
+    </div>
+  </div>
+  <div class="date-time-wrapper">
+    <div class="container">
+      <form [formGroup]="orderForm">
+        <div formArrayName="date" *ngFor="let item of orderForm.get('date')['controls']; let i = index;">
+          <div class="requestForm-wrapper mt-2" [formGroupName]="i">
+            <div>
+              <div class="container">
+                <div class="row mb-2">
+                  <div class="date ">
+                    <label for="">Date</label>
+                    <div class="form-inline">
+                      <div class="form-group">
+                        <div class="input-group">
+                          <input class="form-control" placeholder="Date" name="dp" formControlName="date" ngbDatepicker
+                            [footerTemplate]="footerTemplate" #d="ngbDatepicker" (click)="d.toggle()">
+                        </div>
+                      </div>
+                    </div>
+
+                    <ng-template #footerTemplate>
+                      <hr class="my-0">
+                      <button class="btn btn-primary btn-sm m-2 float-left"
+                        (click)="model = today; d.close()">Today</button>
+                      <button class="btn btn-secondary btn-sm m-2 float-right" (click)="d.close()">Close</button>
+                    </ng-template>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="container">
+                  <label for="">Time</label>
+                </div>
+              </div>
+              <div class="row"formArrayName="time">
+                <div class="col">
+                  <div class="start-time-wrapper">
+                    <input [ngxTimepicker]="start" [format]="24" class="form-control" placeholder="Start time"
+                      formControlName="startTime">
+                    <ngx-material-timepicker #start></ngx-material-timepicker>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="end-time-wrapper">
+                    <input [ngxTimepicker]="end" [format]="24" class="form-control" placeholder="End time"
+                      formControlName="endTime">
+                    <ngx-material-timepicker #end></ngx-material-timepicker>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="requestForm-wrapper mt-2">
+        <div>
+          <div class="row">
+            <div class="container">
+              <div class="add-another-button d-flex justify-content-between">
+                <div class="alternate-date">
+                  <h4>Add alternate date</h4>
+                </div>
+                <div class="alternate-button">
+                  <button class="btn btn-dark btn-sm" (click)="addItem()"><i class="fa fa-plus"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<button class="btn btn-dark submit_button mb-4" (click)="submit()">SUBMIT</button>
+<ng-template #content let-modal> 
+  <div class="modal-body">
+    <div class="bookus-success-wrapper text-center">
+      <div class="bookus-label">
+        <h4>Book Us</h4>
+      </div>
+      <div class="bookus-success">
+        Successfully Sent Request
+      </div>
+      
+    </div>
+    
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-dark w-100" (click)="modal.close('Close click')"[routerLink]="['/main/home']">Ok</button>
+  </div>
+</ng-template>
+ 
+ 

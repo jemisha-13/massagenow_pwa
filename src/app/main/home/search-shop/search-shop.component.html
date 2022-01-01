@@ -1,0 +1,50 @@
+
+<div class="top-spacing">
+  <div class="p-3">
+    <div class="search-field">
+      <form>
+        <div class="input-group">
+          <input type="search" name="search-d" class="form-control rounded" placeholder="Search For Shop" aria-label="Search"
+            aria-describedby="search-addon" #serachIt [(ngModel)]="searchText" (input)="serachShop()" autocomplete="off"/>
+          <div class="searchIcon">
+            <i class="fa fa-search"></i>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="parentLoader" *ngIf="isLoading">
+    <app-custom-spinner></app-custom-spinner>
+  </div>
+  <div class="" *ngIf="shopList.length != 0 && !isLoading">
+        <div class="card upcoming-card" *ngFor="let shopitem of shopList">
+          <div class="card-body p-0 shadow" (click)="viewshopDetails(shopitem)">
+              <div class="therapist-details">
+                  <div class="therapist-img">
+                      <img src="{{ (shopitem && shopitem.company && shopitem.company.logo && shopitem.company.logo) ? shopitem.company.logo : '../../../assets/images/no_image.png'}}"
+                          alt="rere" (error)="setDefaultPic($event)" />
+                  </div>
+                  <div class="upcoming-right-block">
+                      <div class="upcoming-text pl-1 font-16">
+                          <span class="font-weight-bold">{{shopitem?.company.businessName}}</span>
+                      </div>
+                      <div class="upcoming-text pl-1">
+                          <span class="font-14"><i class="fa fa-star" aria-hidden="true"></i>
+                            <span class="ml-1">{{shopitem?.rating.star |number: '1.0-1' }} </span>
+                            <span class="ml-3">{{shopitem?.rating.star_count}} Ratings</span></span>
+                      </div>
+                      <div class="upcoming-text pl-1">
+                          <span class="text-muted font-14"><i class="fa fa-map-marker mr-1" aria-hidden="true"></i>{{shopitem?.street}},{{shopitem?.city}},{{shopitem?.state}}</span>
+                      </div>
+                  </div>
+              </div>
+             
+             
+          </div>
+      </div>
+    <!-- </div> -->
+</div>
+<div class="" *ngIf="shopList.length == 0 && !isLoading && searchText.length > 1">
+  <div class="text-center m-4 font-weight-bold">No shop found</div>
+</div>
+</div>

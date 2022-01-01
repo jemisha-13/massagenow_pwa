@@ -1,0 +1,62 @@
+
+<div class="parentLoader" *ngIf="isLoading">
+  <app-custom-spinner></app-custom-spinner>
+</div>
+<div class="main" *ngIf="!isLoading">
+<div class="imgSection">
+    <div class="container" (click)="bookForSelf()">
+        <div class="row">
+            <div class="introMain-wrapper d-flex align-items-center;">
+                <div class="col-md-4">
+                    <div class="introImg">
+                        <img class="imgcover" src="{{ (loginData && loginData.result.image ) ? loginData.result.image : '../../../assets/images/no_image.png'}}"  alt="rere" (error)="setDefaultPic($event)">
+                        <!-- <img src="../../../../assets/images/default_circle.svg"> -->
+                    </div>
+                </div>
+                <div class="col-md-8 work nameAlign">
+                    <p class="text userDetail">{{loginData?.result.firstName}} {{loginData?.result.lastName}}</p>
+                    <span>Myself</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="line"></div>
+
+<div class="container  notification mt-2">
+    <div class="align-items-center">
+        <p class="relationship">Relationships</p>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-sm-6 col-xs-12" *ngFor="let bookItem of bookList" >
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-4">
+                <img src="../../../../assets/images/default_circle.svg" class="imgstyle">
+              </div>
+              <div class="col-8">
+                <h5 class="card-title text">{{bookItem?.firstName}} {{bookItem?.lastName}}</h5>
+                <div class="outerdiv-text" >
+                    <span class="card-text">{{bookItem?.relationship}}</span>
+                    <span class="card-text">{{bookItem?.phone1}}</span>
+                </div>
+                <h5 class="card-text">{{bookItem?.email}}</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" *ngIf="bookList.length == 0">
+        <div class="col-12">
+            <app-skeleton skeletonData="No Relationships Available"></app-skeleton>
+        </div>
+    </div>
+    </div>
+  </div>
+  <div (click)="goToAddRelation()">
+    <a  class="float">
+        <i class="fa fa-plus my-float"></i>
+        </a>
+  </div>
+</div>

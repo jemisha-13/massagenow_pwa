@@ -1,0 +1,205 @@
+<div class="parentLoader" *ngIf="isLoading">
+    <app-custom-spinner></app-custom-spinner>
+</div>
+<div class="categorySection" *ngIf="!isLoading">
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-8 mt-5">
+                <h5 class="text-color">All Shops</h5>
+            </div>
+            <div class="col-4 mt-5">
+                <h6>View All</h6>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="scrolling-wrapper row flex-row flex-nowrap pb-4 pl-3">
+                <div class="col-6" *ngFor="let shopItem of shopList">
+                    <div class="card card-block card-horiz ratedCard" (click)="viewShopDetails(shopItem)">
+                        <img class="card-img-horiz"
+                            [src]="(shopItem && shopItem.company && shopItem.profileImg && shopItem.profileImg.img) ? shopItem.profileImg.img : '../../../assets/images/no_image.png'">
+                        <div class="card-bottom-text">
+                            <span class="bottom-header">{{shopItem?.company.businessName}}</span>
+                            <p><i aria-hidden="true" class="fa fa-star"></i>{{shopItem?.rating.star}}
+                                {{shopItem?.rating.star_count}} Ratings</p>
+                        </div>
+                        <div class="distance-card">
+                            <span>{{shopItem?.distance|number :'1.0-0'}}Km</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" *ngIf="shopList.length == 0">
+            <div class="col-12">
+                <app-skeleton skeletonData="No Shop List available"></app-skeleton>
+            </div>
+        </div>
+
+        <!--Sponsored-->
+        <div class="row">
+            <div class="col-8">
+                <h5 class="text-color"> Sponsored shops</h5>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="scrolling-wrapper row flex-row flex-nowrap pb-4 pl-3">
+                <div class="col-6" *ngFor="let sponsoredItem of sponsoredList">
+                    <div class="card card-block card-horiz ratedCard">
+                        <img class="card-img-horiz"
+                            src="{{ (sponsoredItem && sponsoredItem.company && sponsoredItem.profileImg && sponsoredItem.profileImg.img) ? sponsoredItem.profileImg.img : '../../../assets/images/no_image.png'}}">
+                        <div class="card-bottom-text">
+                            <p class="bottom-header">{{sponsoredItem?.company.businessName}}</p>
+                            <p><i aria-hidden="true" class="fa fa-star"></i>{{sponsoredItem?.rating.star}}
+                                {{sponsoredItem?.rating.star_count}} Ratings</p>
+                        </div>
+                        <div class="distance-card">
+                            <span>{{sponsoredItem?.distance | number :'1.0-0'}}Km</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" *ngIf="sponsoredList.length == 0">
+            <div class="col-12">
+                <app-skeleton skeletonData="No Sponsored List available"></app-skeleton>
+            </div>
+        </div>
+        <!--Top Rated-->
+        <div class="row">
+            <div class="col-8">
+                <h5 class="text-color">Top Rated Shops</h5>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="scrolling-wrapper row flex-row flex-nowrap pb-4 pl-3">
+                <div class="col-6" *ngFor="let topratedItem of topRatedShopList">
+                    <div class="card card-block card-horiz ratedCard">
+                        <img class="card-img-horiz"
+                            src="{{ (topratedItem && topratedItem.company && topratedItem.profileImg && topratedItem.profileImg.img) ? topratedItem.profileImg.img : '../../../assets/images/no_image.png'}}">
+                        <div class="card-bottom-text">
+                            <span class="bottom-header">{{topratedItem?.company.businessName}}</span>
+                            <p><i aria-hidden="true" class="fa fa-star"></i>{{topratedItem?.rating.star}}
+                                {{topratedItem?.rating.star_count}} Ratings</p>
+                        </div>
+                        <div class="distance-card">
+                            <span>{{topratedItem?.distance |number :'1.0-0'}}Km</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" *ngIf="topRatedShopList.length == 0">
+            <div class="col-12">
+                <app-skeleton skeletonData="No Top Rated Shop List available"></app-skeleton>
+            </div>
+        </div>
+
+        <!--Top Rated therapist-->
+        <div >
+        <div class="row">
+            <div class="col-8">
+                <h5 class="text-color"> Top Rated Therapist</h5>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="scrolling-wrapper row flex-row flex-nowrap pb-4 pl-3">
+                <div class="col-6" *ngFor="let topRankedTherapistItem of topRatedTherapistList">
+                    <div class="therapist-Card-wrapper" (click)="goToTherapist(topRankedTherapistItem)"><img class="image--cover"
+                            src="{{ (topRankedTherapistItem && topRankedTherapistItem.image && topRankedTherapistItem.image && topRankedTherapistItem.image != '1') ? topRankedTherapistItem.image : '../../../assets/images/cust_icon.png'}}">
+                        <div class="card-bottom-text"><span class="bottom-header">{{topRankedTherapistItem?.firstName}} {{topRankedTherapistItem?.lastName}}</span>
+                        </div>
+                        <div class="overlay-text">
+                            <span class="starRating">
+                                <i class="fa fa-star"></i>
+                                0.00
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div >
+            <div class="row">
+                <div class="col-8">
+                    <h5 class="text-color">Ranklist</h5>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="scrolling-wrapper row flex-row flex-nowrap pb-4 pl-3">
+                    <div class="col-6" *ngFor="let topRankItem of topRankedTherapistList">
+                        <div class="therapist-Card-wrapper"><img class="image--cover"
+                                src="{{ (topRankItem && topRankItem.company && topRankItem.profileImg && topRankItem.profileImg.img) ? topRankItem.profileImg.img : '../../../assets/images/cust_icon.png'}}">
+                            <div class="card-bottom-text"><span class="bottom-header">{{topRankItem?.firstName}} {{topRankItem?.lastName}}</span>
+                            </div>
+                            <div class="overlay-text">
+                                <span class="starRating">
+                                    <i class="fa fa-star"></i>
+                                    0.00
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" *ngIf="topRankedTherapistList.length == 0">
+            <div class="col-12">
+                <app-skeleton skeletonData="No TopRankedTherapistList available"></app-skeleton>
+            </div>
+        </div>
+        <!--Blogs-->
+        <div class="row mt-3">
+            <div class="col-8">
+                <h5 class="text-color">Blogs</h5>
+            </div>
+            <div class="col-4">
+                <h6>View All</h6>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="scrolling-wrapper row flex-row flex-nowrap pb-4 pl-3">
+                <div class="col-6" *ngFor="let blogItem of blogList">
+                    <div class="card card-block card-horiz">
+                        <img class="card-img-horiz" src="../../../assets/images/no_image.png">
+                        <div class="card-bottom-text">
+                            <span class="bottom-header">{{blogItem?.heading}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" *ngIf="blogList.length == 0">
+            <div class="col-12">
+                <app-skeleton skeletonData="No Blog List available"></app-skeleton>
+            </div>
+        </div>
+
+        <!--Videos-->
+        <div class="row mt-3">
+            <div class="col-8">
+                <h5 class="text-color">Videos</h5>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="scrolling-wrapper row flex-row flex-nowrap pb-4 pl-3">
+                <div class="col-6" *ngFor="let videoItem of newVideoData">
+                    <div class="card card-block card-horiz">
+                        <iframe [src]="videoItem.url" width="100%" height="150px" frameborder="0" webkitallowfullscreen
+                            mozallowfullscreen allowfullscreen></iframe>
+                        <div class="card-bottom-text">
+                            <p class="mt-1 xyz">{{videoItem?.name}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" *ngIf="newVideoData.length == 0">
+            <div class="col-12">
+                <app-skeleton skeletonData="No New Video available"></app-skeleton>
+            </div>
+        </div>
+    </div>
+</div>

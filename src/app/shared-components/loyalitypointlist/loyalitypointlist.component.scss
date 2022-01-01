@@ -1,0 +1,43 @@
+.loyalityModal {
+    .awardImg {
+        background: url('../../../assets/images/golden_cup.png') no-repeat;
+        background-attachment: fixed;
+        background-position: top;
+        background-size: 300px 160px;
+        height: 155px;
+        margin-left: 13px;
+        margin-top: 0px;
+        font-size: 23px;
+    }
+    .loyalityCard-wrapper {
+        margin: 20px 0;
+        background-color: #fff;
+        padding: 20px 10px;
+        border-radius: 5px;
+        -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        .card-heading {
+            margin-bottom: 15px;
+        }
+        .pointWrapper {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            .wid-80 {
+                width: 80%;
+            }
+            .wid-40 {
+                width: 40%;
+            }
+        }
+        .earnedDate {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 15px;
+            span {
+                color: #8e8a8a;
+            }
+        }
+    }
+}

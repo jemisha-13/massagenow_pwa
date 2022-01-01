@@ -1,0 +1,226 @@
+<div class="parentLoader" *ngIf="isLoading">
+    <app-custom-spinner></app-custom-spinner>
+</div>
+<div class="container-fluid" [ngClass]="{'mobile-view': isMobile, 'desktop-view': !isMobile}" *ngIf="!isLoading">
+    <div class="row bgz-dark fixed-top  mt-my-5">
+        <div class="col-6 text-center text-white" (click)="showContent('upcoming')">
+            <div [ngClass]="{'active': currTab=='upcoming'}">
+                <span>
+                    Upcoming
+                </span>
+            </div>
+        </div>
+        <div class="col-6 text-center text-white" (click)="showContent('history')">
+            <div [ngClass]="{'active': currTab=='history'}">
+                <span>
+                    History
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="therapist-header"  *ngIf="!isMobile">
+      <div classs="row">
+        <!-- <div class="col-md-12 headerWeb location" id="myHeader">
+          <div class="locationText" >{{theRapistDetails?.location[0]?.city}}</div>
+        </div> -->
+        <div class="col-md-12 headerWeb referalSource" id="myHeader">
+          <div class="locationText">My Schedule</div>
+        </div>
+      </div>
+    </div>
+    <div class="schedule-tab" *ngIf="!isMobile">
+      <label for="">My schedule</label>
+      <div class="tabs">
+        <button class="btn" [ngClass]="{'active': currTab=='upcoming'}" (click)="showContent('upcoming')">Upcomming</button>
+      </div>
+    </div>
+    <div class="cardposition" *ngIf="isContentType">
+        <div class="row upcomming" *ngIf="upcomingList.length != 0">
+            <div class="col-md-12">
+                <div class="col-left">
+          <ng-container *ngFor="let upcomingitem of upcomingList">
+            <div class="card upcoming-card mt-3 mb-3">
+              <div class="card-body p-0 shadow">
+                  <div class="therapist-details">
+                      <div class="therapist-img">
+                          <img src="{{ (upcomingitem && upcomingitem.company && upcomingitem.company.logo && upcomingitem.company.logo.img) ? upcomingitem.company.logo.img : '../../../assets/images/no_image.png'}}"
+                              alt="rere" (error)="setDefaultPic($event)" />
+                      </div>
+                      <div class="upcoming-right-block">
+                          <div class="upcoming-text pl-1 font-16">
+                              <span class="font-weight-bold">{{upcomingitem?.service.name}}</span>
+                              <span class="font-12 grey">${{upcomingitem?.special_price}}</span>
+                          </div>
+                          <div class="upcoming-text pl-1">
+                              <span class="text-muted font-14"><i class="bi bi-calendar3 v-align-super"></i> {{upcomingitem?.day |date: 'yyyy-MM-dd'}}</span>
+                          </div>
+                          <div class="upcoming-text pl-1">
+                              <span class="text-muted font-14"><i class="bi bi-alarm v-align-super"></i>{{upcomingitem?.startTime| date: ' hh:mm a' }}
+                                  - {{upcomingitem?.endTime|date: ' hh:mm a' }}</span>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="upcoming-text px-2 py-1 font-14">
+                      <span class="font-weight-bold">{{upcomingitem?.staff.firstName}} {{upcomingitem.staff.lastName}}</span>
+                      <span>{{upcomingitem?.duration}}</span>
+                  </div>
+                  <div class="upcoming-text px-2 py-1 font-14">
+                      <span>{{upcomingitem.locationDetail[0].name}}</span>
+                      <div>
+                          <a href="tel:{{upcomingitem?.company.phone}}" [ngClass]="upcomingitem?.status ==='cancelled'? 'disable-link' : 'enable-link'"><img src="../../../assets/images/call.svg" /></a>
+                          <a href="http://maps.google.com/?q={{upcomingitem?.locationDetail[0].street}}"><img src="../../../assets/images/directions.svg" /></a>
+                      </div>
+
+                  </div>
+                  <div class="buttons-area" *ngIf="upcomingitem?.status !=='cancelled'">
+                      <button type="button" class="btn" (click)="cancelAppointment(upcomingitem.client._id,upcomingitem.booking_reference)">Cancel</button>
+                      <button type="button" class="btn"(click)="paymentMethod(upcomingitem)">Pay</button>
+                  </div>
+                  <div class="cancelled-button-wrapper text-center"  *ngIf="upcomingitem?.status ==='cancelled'">
+                      <button type="button" class="btn" disabled><h5>Cancelled</h5></button>
+                  </div>
+
+              </div>
+            </div>
+          </ng-container>
+        </div>
+        <div class="col-right">
+
+        </div>
+        </div>
+        </div>
+
+        <div class="row" *ngIf="upcomingList.length == 0">
+            <div class="col-12">
+                <app-skeleton skeletonData="No Upcoming Appointment"></app-skeleton>
+            </div>
+        </div>
+        <div class="btn" (click)="goToSendrequest()">
+            <a class="float">
+                <!-- <i class="fa fa-calendar" aria-hidden="true" class="my-float"></i> -->
+                <i class="bi bi-calendar-week my-float"></i>
+            </a>
+        </div>
+    </div> 
+
+    <div class="schedule-tab" *ngIf="!isMobile">
+        <!-- <label for="">My schedule</label> -->
+        <div class="tabs">
+          <button class="btn" [ngClass]="{'active': currTab=='history'}" (click)="showContent('history')">History</button>
+        </div>
+      </div>
+    <div class="cardposition" *ngIf="!isContentType">
+        <!-- <div class="col-md-8"></div> -->
+        <div class="row history-tab" *ngIf="historyList.length != 0">
+            <div class="detail-view-wrapper w-100 deatilsPage ">
+                <div class="column-left" >
+            <!-- <div class="carddetailposition scheduleHistory-card"> -->
+                <div class="card upcoming-card mt-3 mb-3 " *ngFor="let historyItem of historyList">
+                  <div class="card-body p-0 shadow" (click)="historyDetail(historyItem)">
+                      <div class="therapist-details">
+                          <div class="therapist-img">
+                              <img src="{{ (historyItem && historyItem.company && historyItem.company.logo && historyItem.company.logo.img) ? historyItem.company.logo.img : '../../../assets/images/no_image.png'}}"
+                                  alt="rere" (error)="setDefaultPic($event)" />
+                          </div>
+                          <div class="upcoming-right-block">
+                              <div class="upcoming-text pl-1 font-16">
+                                  <span class="font-weight-bold">{{historyItem?.service.name}}</span>
+                                  <span class="font-12 grey">${{(historyItem?.special_price | number: '1.1-1') || 0}}</span>
+                              </div>
+                              <div class="upcoming-text pl-1">
+                                  <div class="history-date-wrapper">
+                                    <span class="text-muted font-14"><i class="bi bi-calendar3 v-align-super"></i> {{historyItem?.day |date: 'yyyy-MM-dd'}}</span>
+                                  </div> 
+                                  <div class="edit-button-wrapper">
+                                      <button class="btn btn-dark btn-sm" style="border-radius: 20px;"><i class="fa fa-edit"></i></button>
+
+                                  </div>
+                              </div>
+                              <div class="upcoming-text pl-1">
+                                  <span class="text-muted font-14"><i class="bi bi-alarm v-align-super"></i>  {{historyItem?.startTime| date: ' hh:mm a' }}
+                                      -{{historyItem?.endTime|date: ' hh:mm a' }}</span>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="upcoming-text px-2 py-1 font-14">
+                          <span class="font-weight-bold">{{historyItem?.staff?.firstName}} {{historyItem.staff?.lastName}}</span>
+                          <span>{{historyItem?.duration}}</span>
+                      </div>
+                      <div class="upcoming-text px-2 py-1 font-14">
+                          <span class="business-name">{{historyItem?.company.businessName}}</span>
+                          <span *ngIf="historyItem?.checkout==true">Points Earned
+                              {{historyItem?.service.loyaltyPointRecieve}}</span>
+                      </div>
+                      <div class="upcoming-text px-2 py-1 font-14"
+                          *ngIf="historyItem?.checkout ==false?historyItem?.checkout:'' ">
+                          <span (click)="moveAddReview()">Add Review</span>
+                          <div class="star-wrapper">
+                              <img src="../../../assets/images/grey_star.svg">
+                              <img src="../../../assets/images/grey_star.svg">
+                              <img src="../../../assets/images/grey_star.svg">
+                              <img src="../../../assets/images/grey_star.svg">
+                              <img src="../../../assets/images/grey_star.svg">
+                          </div>
+                      </div>
+                      <div class="upcoming-text px-2 py-1 font-14"
+                          *ngIf="historyItem?.checkout ==true ?historyItem?.checkout:'' ">
+                          <span>You Rated</span>
+                          <div class="star-wrapper">
+                              <ng-template #t let-fill="fill">
+                                  <span class="star" [class.full]="fill === 100">
+                                      <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+                                  </span>
+                              </ng-template>
+                              <ngb-rating [(rate)]="historyItem?.rating.star" [starTemplate]="t" [readonly]="true"
+                                  [max]="5"></ngb-rating>
+                          </div>
+                      </div>
+                      <!-- <div class="upcoming-text p-2">
+                          <span>Points Earned</span>
+                          <span>34</span>
+                      </div> -->
+
+                      <div class="buttons-area">
+                          <button type="button" class="btn" (click)="goToSelect(historyItem)">Re-book</button>
+                          <button type="button" class="btn" (click)="sendInvoice(historyItem?.invoice)" >Invoice</button>
+                          <button type="button" class="btn" (click)="goToTip()">Add Tip</button>
+                      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="column-right" >
+                <div class="center-side">
+                <div class="card upcoming-card mt-3 mb-3 " >
+                    <div class="card-body p-0 shadow" >
+                <div class="therapist-details">
+                    <div class="therapist-img">
+                        <!-- <img src="{{ (historyItem && historyItem.company && historyItem.company.logo && historyItem.company.logo.img) ? historyItem.company.logo.img : '../../../assets/images/no_image.png'}}"
+                            alt="rere" (error)="setDefaultPic($event)" /> -->
+                    </div>
+                    <div class="upcoming-right-block">
+                        <div class="upcoming-text pl-1 font-16">
+                            <!-- <span class="font-weight-bold">{{serviceName}}</span> -->
+                            <!-- <span class="font-12 grey">${{(historyItem?.special_price | number: '1.1-1') || 0}}</span> -->
+                        </div>
+                        <div class="upcoming-text pl-1">
+                            <!-- <span class="text-muted font-14"><i class="bi bi-calendar3 v-align-super"></i> {{historyItem?.day |date: 'yyyy-MM-dd'}}</span> -->
+                        </div>
+                        <div class="upcoming-text pl-1">
+                            <!-- <span class="text-muted font-14"><i class="bi bi-alarm v-align-super"></i>  {{historyItem?.startTime| date: ' hh:mm a' }}
+                                -{{historyItem?.endTime|date: ' hh:mm a' }}</span> -->
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+        <div class="row" *ngIf="historyList.length == 0">
+            <div class="col-12">
+                <app-skeleton skeletonData="No History Appointments"></app-skeleton>
+            </div>
+        </div>
+    </div>

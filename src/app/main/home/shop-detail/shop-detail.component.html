@@ -1,0 +1,116 @@
+
+<div class="container-fluid" [ngClass]="{'mobile-view': this.isMobile, 'desktop-view': !this.isMobile}">
+  <div class="herbal-center-wrapper mt-3">
+    <div class="heading-wrapper" *ngIf="!isMobile">
+      <div class="row new-row location-wrapper">
+        <div class="location">
+          <h4 class="location-geo">Your Location:&nbsp; Melbourne,VC</h4>
+        </div>
+      </div>
+      <div class=" center-location-wrapper">
+        <div class="center-location-name">
+          <h4 class="center-name">{{shopDetails?.companyName}}</h4>
+        </div>
+      </div>
+    </div>
+    <!-- SHOP DETAIL// -->
+    <div class="row shop-detail">
+      <div class="col-md-6">
+        <div class="topImg">
+          <img
+            src="{{(shopDetails && shopDetails.profileImage && shopDetails.profileImage.length) ? (shopDetails.profileImage[0].img) : '../../../assets/images/no_image.png'}}"
+            class="w-100" alt="">
+          <div class="row">
+            <div class="centered d-flex justify-content-between">
+              <div class="store-name">
+                <span>{{shopDetails?.companyName}}</span>
+              </div>
+              <div class="store-like">
+                <i class="fa fa-heart" [ngClass]="{'active': isFavouriteShop}" (click)="addShopTofavourite()"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="profile-wrapper mt-2">
+          <div class="store-details">
+            <div class="store-location-detail d-flex justify-content-between mb-1">
+              <div class="location-name">
+                <i class="fa fa-map-marker"></i><span class="detail-span">{{shopDetails?.companyStreet}}</span>
+              </div>
+              <div class="location-icon">
+                <a href="http://maps.google.com/?q={{shopDetails?.companyStreet}}"><img src="../../../assets/images/directions.svg" alt=""></a>
+
+                 <!-- <a href="geo:{{shopDetails?.geo_location.coordinates[1]}},{{shopDetails?.geo_location.coordinates[0]}}"><img src="../../../assets/images/directions.svg" alt=""></a> -->
+              </div>
+            </div>
+            <div class="store-average  mb-1">
+              <i class="fa fa-dollar"></i><span class="detail-span">Average $20 per Person</span>
+            </div>
+            <div class="number-of-therapist mb-1">
+              <i class="fa fa-user"></i><span class="detail-span">{{shopDetails?.totalTherapist}} Therapist</span>
+            </div>
+            <div class="totalstore-rating d-flex justify-content-between mb-1">
+              <div class="rating-number ">
+                <i class="fa fa-star"></i><span class="detail-span">{{shopDetails?.locationRating?.star.toFixed(1)}}
+                  ({{shopDetails?.locationRating?.star_count}} Ratings)</span>
+              </div>
+              <div class="rating-view-all font-14">
+                <a (click)="goTOReview()">View All</a>
+              </div>
+            </div>
+            <div class="store-timming d-flex justify-content-between mb-1">
+              <div class="time-of-appointments">
+                <i class="fa fa-clock-o"></i><span class="detail-span">9.30am - 9.30pm</span>
+              </div>
+              <div class="show-more-time">
+                <button type="button" class="btn btn-sm" (click)="collapse.toggle()" [attr.aria-expanded]="isCollapsed"
+                  aria-controls="collapseExample">
+                  <i class="fa fa-chevron-down"></i>
+                </button>
+              </div>
+            </div>
+            <div #collapse="ngbCollapse" [(ngbCollapse)]="!isCollapsed">
+              <div class="card shop-open-time">
+                <div class="card-body" *ngFor="let timing of timingAvailable">
+                  <span class="badge badge-dark">{{timing?.day_of_week}}</span>
+                  <span class="detail-span">{{timing?.start|date:'shortTime'}} - {{timing?.end|date:'shortTime'}}</span>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="mainActin-outerbtn">
+              <div class="action-btn d-flex align-items-center" *ngIf="!isMobile">
+                <div class="col-md-6">
+                  <a class="btn btn-success w-100" href="tel:{{shopDetails?.companyPhone}}">Call</a>
+                </div>
+                <div class="col-md-6">
+                  <a class="btn btn-danger w-100"
+                    href="mailto:{{shopDetails?.companyEmail}}?Subject=Hello%20User">Email</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- SHOP REVIEW -->
+    <div class="mt-4">
+      <app-rate-and-reviews [shopDetail]="true"> </app-rate-and-reviews>
+    </div>
+    <!-- SERVICES && THERAPIST -->
+    <div class="row mt-2 padding-inline-10">
+      <!-- SERVICES -->
+      <div class="col-md-6 col-sm-12">
+        <h4><b>Services</b></h4>
+        <app-service-selection [shopDetail]="true" (selectedService)="selectedService($event)"></app-service-selection>
+      </div>
+      <!-- THERAPIST -->
+      <div class="col-md-6 col-sm-12 therapist-block">
+        <h4 *ngIf="selectedServiceObj"><b>Therapist</b></h4>
+        <app-pick-therapist [shopDetail]="true" [selectedService]="selectedServiceObj" *ngIf="selectedServiceObj"></app-pick-therapist>
+      </div>
+    </div>
+  </div>
+</div>

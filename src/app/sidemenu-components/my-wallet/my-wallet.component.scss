@@ -1,0 +1,77 @@
+.wallet {
+    margin: 60px 0 30px;
+    background-color: #000;
+    border-radius: 10px;
+    padding: 50px 10px 20px;
+    .ballanceinnerwrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+        @media all and (min-width: 1024px) {
+            justify-content: space-between;
+            padding: 0 26px;
+        }
+        @media all and (min-width: 768px) {
+            justify-content: space-between;
+            padding: 0 26px;
+        }
+    }
+    .wallet-heading {
+        h6 {
+            color: #fff;
+            margin-top: 10px;
+        }
+    }
+    .balance-amt {
+        h5 {
+            font-size: 30px;
+            color: #fff;
+        }
+    }
+    .bottomLine {
+        width: 100%;
+        background: #fff;
+        height: 2px;
+        margin: 20px 20px 10px;
+    }
+    .walletMoney {
+        text-align: center;
+        width: 100%;
+        a {
+            color: #fff;
+            font-size: 20px;
+        }
+    }
+}
+.transactions{
+    display: block;
+}
+.transactionsmoney{
+    font-size: 24px;
+}
+.tableLeft {
+    span {
+        &:nth-of-type(1) {
+            margin-bottom: 10px;
+            // color: #000;
+            font-weight: 500;
+            font-size: 20px;
+        }
+    }
+}
+.transactionsheader{
+    background-color: #d0cdcd;
+    margin: 0 -14px;
+    padding: 10px;
+    h5 {
+        font-size: 16px;
+        font-weight: 500;
+        color: #000;
+    }
+}
+.table {
+    width: 100%;
+    margin-bottom: 6rem;
+    color: #212529;
+}

@@ -1,0 +1,58 @@
+
+<div class="parentLoader" *ngIf="isLoading">
+    <app-custom-spinner></app-custom-spinner>
+</div>
+<div class="pickTherapist" *ngIf="!isLoading" [ngClass]="{'shop-detail': shopDetail}">
+    <div class="cardPosition therapist-innerHeader">
+        <div class="">
+            <div class="d-flex align-items-center">
+                <div class="col-6 therapistContent">
+                    <div class="">No preference will maximise the availability</div>
+                </div>
+                <div class="col-6 text-right">
+                    <button type="button" class="btn btn-primary bookanyone">Book Anyone</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="outer-Cardtherapist">
+        <div class="mainContentSection" *ngFor="let item of pickTherapistList">
+            <div class="row"  >
+                <div class="col-9 col-lg-10 col-xl-10" (click)="viewTherapistDetails(item)" >
+                    <div class="mainImgProfile d-flex">
+                    <div class="img">
+                        <img [src]="(item && item.image ) ? item.image : '../../../assets/images/cust_icon.png'"  alt="rere" (error)="setDefaultPic($event)" class="imgPositionNew">
+                    </div>
+                    <div class="content-wrapper d-flex justify-content-between" >
+                        <div class="content">
+                            <h6>{{item?.firstName}}</h6>
+                            <div class="card-innerRating d-flex">
+                                <div class="startPoint mr-3">
+                                    <i class="fa fa-star"></i>
+                                    {{item?.rating?.star | number :'1.1-1' }}
+                                </div>
+                                <div class="ratingPoint">
+                                    <span>{{item?.rating?.star_count}} Ratings</span>
+                                </div>
+                            </div>
+                        </div>
+                         <i class="fa fa-venus"
+                         [ngClass]="{'gender': item?.gender == 'Male', 'webgender': item?.gender == 'Female'}"></i>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-3 col-lg-2 col-xl-2 text-right">
+                    <div class="bookBtn">
+                        <button class="btn btn-primary w-100" (click)="bookTherapist(item)">Book</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ng-container *ngIf="shopDetail && copyPickTherapistList.length > 3">
+          <div class="text-center">
+            <button class="btn btn-dark mb-2" *ngIf="!showMore" (click)="showMoreList()">Show More</button>
+            <button class="btn btn-dark mb-2" *ngIf="showMore" (click)="showMoreList()">Show Less</button>
+          </div>
+        </ng-container>
+    </div>
+</div>

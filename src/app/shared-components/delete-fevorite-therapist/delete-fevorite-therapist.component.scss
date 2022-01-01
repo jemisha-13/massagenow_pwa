@@ -1,0 +1,13 @@
+::ng-deep .delete-therapist-modal {
+    .modal-content{
+        width: 90%;
+        margin: 0 auto;
+    }
+    .btn-default {
+        border: 1px solid;
+    }
+    .btn-default:focus {
+        outline: none;
+        box-shadow: none;
+    }
+}

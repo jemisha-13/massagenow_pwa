@@ -1,0 +1,50 @@
+<div class="online_support">
+    <div class="container auto-h">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="onlinesupportform">
+                    <form>
+                        <div class="row mt-4">
+                            <div class="col-md-12 pb-3">
+                                <label for="uname1">Title</label>
+                                <input class="form-control" placeholder="Enter Title" type="text">
+                            </div>
+                            <div class="col-md-12 pb-3">
+                                <textarea class="form-control" placeholder="Enter Your query here"
+                                    id="complexExampleMessage" cols="10" rows="10"></textarea>
+                            </div>
+                            <div class="customAttach">
+                                <div class="pb-3 " (click)="attchModal(content)">
+                                    <p class="fileposition">Attach File <i class="fa fa-paperclip" aria-hidden="true"></i>
+                                    </p>
+                                </div>
+                                <div class="attachImg">
+                                 <img src="../../../assets/images/no_image.png">
+                                </div>
+                            </div>
+                            <div>
+                                <button class="btn btn-dark supportbtn" type="button">Save</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- modal for attach file -->
+<ng-template #content let-modal>
+    <div class=" text-center mt-3" >
+      <h5 class=" text-center" >Book Us</h5>
+    </div>
+    <div class="text-center" >
+     <p class="text-center" >Pick Image</p>
+    </div>
+    <div class="modal-body">
+        <button class="camera">Gallery</button>
+    </div>
+    <div class="modal-body">
+        <button class="cameraButton">Camera</button>
+    </div>
+    
+  </ng-template>

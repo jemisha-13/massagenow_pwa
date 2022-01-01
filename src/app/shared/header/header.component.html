@@ -1,0 +1,285 @@
+<div id="mySidenav" #sidenav class="sidenav">
+    <div>
+        <div class="container-fluid  material-header" style="background-color: black; color: white;">
+            <div class="row p-1">
+                <div class="col-2 text-center app-logo-container" >
+                    <i class="bi bi-patch-check-fill bi-icon-color"></i>
+                    <img [src]="customerDetails && customerDetails.result && customerDetails.result.image ?  customerDetails.result.image : '../../../assets/images/cust_icon.png'"
+                        class="profile-image">
+                </div>
+                <div class="col-10">
+                    <div class="headerRight-top d-flex align-items-center justify-content-between1">
+                        <div class="center-text-style">
+                            <div class="user-detail-block d-flex align-items-start">
+                                <div class="headerMain-details" style="margin-top: 0px;">
+                                    <div class="userbadge-name d-flex">
+                                        <p class="mb-0">{{customerDetails && customerDetails.result &&
+                                            customerDetails.result.firstName ?
+                                            customerDetails.result.firstName : '' }} {{' '}} {{customerDetails &&
+                                            customerDetails.result
+                                            && customerDetails.result.lastName ? customerDetails.result.lastName : '' }}
+                                        </p>
+                                        <img class="ml-2" src="../../../assets/images/bronze_badge.svg">
+                                    </div>
+                                    <div class="locationStats d-flex align-items-center" style="margin-top: 0px;">
+                                      <i class="bi bi-star-fill mb-1"></i>
+                                        <!-- <div class="locationIcon">
+                                        </div> -->
+                                        <!-- <div class=""> -->
+                                            <p class="mb-0 ml-1 location-wrapper">0</p>
+                                        <!-- </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div style="position: relative;" (click)="navigateTo('my-score')">
+                                <img src="../../../assets/images/sheild.svg" class="sheild-img">
+                                <div class="centered">{{sheildData}}</div>
+                            </div>
+                            <!-- <div> -->
+                                <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+                            <!-- </div> -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a (click)="navigateTo('')" class="border_type">Home <i class="bi bi-chevron-right bi-sidemenu-icon"></i></a>
+    <a (click)="navigateTo('my-profile')" class="border_type"
+        [ngClass]=" route_title == 'profile' ? 'my-profile' : ''">My Profile <i
+            class="bi bi-chevron-right bi-sidemenu-icon"></i></a>
+    <a (click)="navigateTo('Wallet')" class="border_type" [ngClass]=" route_title == 'Wallet' ? 'my-profile' : ''">My
+        Wallet <i class="bi bi-chevron-right bi-sidemenu-icon"></i></a>
+    <a (click)="navigateTo('my-backpack')" class="border_type"
+        [ngClass]=" route_title == 'my-backpack' ? 'my-profile' : ''">My Backpack <i
+            class="bi bi-chevron-right bi-sidemenu-icon"></i></a>
+    <a (click)="navigateTo('my-relationship')" class="border_type"
+        [ngClass]=" route_title == 'my-relationship' ? 'my-profile' : ''">My Relationships <i
+            class="bi bi-chevron-right bi-sidemenu-icon"></i></a>
+    <a (click)="navigateTo('my-points')" class="border_type"
+        [ngClass]=" route_title == 'my-points' ? 'my-profile' : ''">My Loyality Points <i
+            class="bi bi-chevron-right bi-sidemenu-icon"></i></a>
+    <a (click)="navigateTo('')" class="border_type">List My Shop <i
+            class="bi bi-chevron-right bi-sidemenu-icon"></i></a>
+    <a (click)="navigateTo('')" class="border_type">Invite a Friend <i
+            class="bi bi-chevron-right bi-sidemenu-icon"></i></a>
+    <a (click)="navigateTo('report-bug')" class="border_type"
+        [ngClass]=" route_title == 'report-bug' ? 'my-profile' : ''">Report a Bug <i
+            class="bi bi-chevron-right bi-sidemenu-icon"></i></a>
+    <a (click)="navigateTo('faq')" class="border_type" [ngClass]=" route_title == 'faq' ? 'my-profile' : ''">FAQ <i
+            class="bi bi-chevron-right bi-sidemenu-icon"></i></a>
+    <a (click)="navigateTo('online-support')" class="border_type"
+        [ngClass]=" route_title == 'online-support' ? 'my-profile' : ''">Online Support <i
+            class="bi bi-chevron-right bi-sidemenu-icon"></i></a>
+    <a class="show_version">Version 2.6</a>
+    <button class="btn btn-dark logout_button" (click)="logoutUser()"> Logout</button>
+</div>
+<div class="parentHeader" *ngIf="ShowMobile">
+    <header *ngIf="isHomeHeader && !categoryRoute" class="fixed-top bg-white">
+        <div class="container-fluid  material-header">
+            <div class="row p-1">
+                <div class="col-2 text-center app-logo-container" (click)="showSidemenu('hello')">
+                    <i class="bi bi-patch-check-fill bi-icon-color"></i>
+                    <img [src]="customerDetails && customerDetails.result && customerDetails.result.image ?  customerDetails.result.image : '../../../assets/images/cust_icon.png'"
+                        class="profile-image">
+                </div>
+                <div class="col-10">
+                    <div class="headerRight-top d-flex align-items-center justify-content-between">
+                        <div class="center-text-style">
+                            <div class="col-12 d-flex align-items-start">
+                                <div class="headerMain-details" >
+                                    <div class="userbadge-name d-flex" >
+                                        <p (click)=openLocationComponent() class="mb-0">{{customerDetails && customerDetails.result &&
+                                            customerDetails.result.firstName ?
+                                            customerDetails.result.firstName : '' }} {{' '}} {{customerDetails &&
+                                            customerDetails.result
+                                            && customerDetails.result.lastName ? customerDetails.result.lastName : '' }}
+                                        </p>
+                                        <img class="ml-2" src="../../../assets/images/bronze_badge.svg" (click)="goToScore()">
+                                    </div>
+                                    <div class="locationStats d-flex align-items-center" (click)=openLocationComponent()>
+                                        <div class="locationIcon">
+                                            <i class="bi bi-geo-alt-fill"></i>
+                                        </div>
+                                        <div class="location-wrapper" *ngIf="isLocation">
+                                            <p class="mb-0 ml-1 locationHeader" *ngIf="locationList != undefined && locationList != null && locationList != '' && !locationData.length">{{locationList}}</p>
+                                            <p class="mb-0 ml-1 locationHeader" *ngIf="locationData !=  null && locationData != undefined && locationData != ''">{{locationData}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="center-text-style user-waller">
+                            <div>
+                                <span>$79.1 &nbsp;</span>
+                                <img src="../../../assets/images/wallet.svg" alt="my_wallet" width="20" height="20">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <header class="fixed-top" *ngIf="!isHomeHeader && !authHeader && presentUrl != 'my-profile' && !categoryRoute">
+        <div class="container-fluid bg-dark">
+            <div class="row bg-dark text-white header-container">
+                <div class=""
+                    *ngIf="presentUrl != 'schedule' && presentUrl != 'like' && presentUrl != 'notifications'"
+                    (click)="navigateToHome(presentUrl)">
+                    <i class="bi bi-arrow-left-circle-fill"></i>
+                </div>
+                <div class="mt-1 header-title" >
+                    <p class="bold-header authHeader presentUrl_my_profile">{{presentUrl | titlecase}}</p>
+                    <ng-container *ngIf="startBookingTime">
+                      <countdown [config]="bookingTimeConfig" (event)="handleEvent($event, content)"></countdown>
+                    </ng-container>
+
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <header class="fixed-top" *ngIf="!isHomeHeader && categoryRoute">
+        <div class="container-fluid bg-dark">
+          <div class="row bg-dark text-white header-container">
+              <div (click)="navigateToHome(presentUrl)">
+                  <i class="bi bi-arrow-left-circle-fill"></i>
+              </div>
+              <div class="mt-1 header-title">
+                <p class="bold-header authheader catefroyRoute">{{categoryRoute | titlecase}}</p>
+                <ng-container *ngIf="startBookingTime">
+                  <countdown [config]="bookingTimeConfig" (event)="handleEvent($event, content)"></countdown>
+                </ng-container>
+              </div>
+          </div>
+      </div>
+    </header>
+    <header class="fixed-top" *ngIf="isHomeHeader && authHeader && categoryRoute">
+        <div class="container-fluid bg-dark">
+            <div class="row bg-dark text-white header-container">
+                <div (click)="navigateToHome(presentUrl)">
+                    <i class="bi bi-arrow-left-circle-fill"></i>
+                </div>
+                <div class="mt-1 header-title">
+                  <p class="bold-header authheader catefroyRoute">{{categoryRoute | titlecase}}</p>
+                  <ng-container *ngIf="startBookingTime">
+                    <countdown [config]="bookingTimeConfig" (event)="handleEvent($event, content)"></countdown>
+                  </ng-container>
+                </div>
+            </div>
+        </div>
+    </header>
+</div>
+<div class="largeHeader" *ngIf="!ShowMobile && !authHeader">
+    <nav class="shadow-sm  navbar navbar-expand-lg navbar-light" >
+        <div class="row w-100">
+            <div class="logo">
+                <a class="navbar-brand" (click)="navigateToHomePage()" >
+                    <img src="../../../assets/images/BookUs_logo.png" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="search-bar">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="search-wrapper">
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        </form>
+                        <div class="Icon-img">
+                            <i class="fa fa-search"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="user-locations">
+              <div class="current-location" *ngIf="!isShowSearchBar" (click)="isShowSearchBar = !isShowSearchBar">
+                <b>Your Location:</b> <span> {{ userLocation }}</span>
+              </div>
+              <div class="search-location" *ngIf="isShowSearchBar">
+                <span><b>Choose Location:</b></span>
+                <input google-place class="locationBox" [(ngModel)]="userLocation" (onSelect)="setAddress($event)" class="form-control" placeholder="e.g. 120 Queen Street">
+              </div>
+            </div>
+            <div class="menuItems">
+                <div class="head-text">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item  " (click)="goToSchedule()">
+                            <a class="nav-link" class="textcolor ">Schedule</a>
+                        </li>
+                        <li class="nav-item" (click)="goToFavourite()">
+                            <a class="nav-link" class="textcolor">Favourites</a>
+                        </li>
+                        <li class="nav-item" (click)="goToNotification()">
+                            <a class="nav-link" class="textcolor">Notifications</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" class="textcolor">Gift Card</a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link btn btn-primary" href="#">Login/Signup</a>
+                        </li> -->
+                        <li class="nav-item">
+                            <a class="nav-link"><img src="../../../assets/images/wallet.svg"></a>
+                        </li>
+                        <li class="nav-item m-0">
+                            <div class="outer-dropWrapper">
+                                <div class="name-user">
+                                    <a class="nav-link " ><img
+                                            src="../../../assets/images/bronze_badge.svg"><span
+                                            class="textcolor">Cendra</span></a>
+                                </div>
+                                <div class="d-inline-block customDropdown" ngbDropdown #myDrop="ngbDropdown">
+                                    <button class="btn btn-outline-primary btn-sm mr-2" id="dropdownManual"
+                                        ngbDropdownAnchor (focus)="myDrop.open()"> <img
+                                            src="../../../assets/images/default_circle.svg" class="imgCircle"
+                                            alt=""></button>
+                                    <div ngbDropdownMenu aria-labelledby="dropdownManual">
+                                        <button ngbDropdownItem (click)="navigateTo('my-profile')">My Profile</button>
+                                        <button ngbDropdownItem (click)="navigateTo('Wallet')">My Wallet</button>
+                                        <button ngbDropdownItem (click)="navigateTo('my-backpack')">My Backpack</button>
+                                        <button ngbDropdownItem (click)="navigateTo('my-relationship')">My Relationships</button>
+                                        <button ngbDropdownItem (click)="navigateTo('')">List My Shop</button>
+                                        <button ngbDropdownItem (click)="navigateTo('')">Invite A Friend</button>
+                                        <button ngbDropdownItem (click)="navigateTo('report-bug')">Report a Bug</button>
+                                        <button ngbDropdownItem (click)="navigateTo('faq')">FAQ</button>
+                                        <button ngbDropdownItem (click)="navigateTo('online-support')">Online Support</button>
+                                        <button ngbDropdownItem class="logout" (click)="logoutUser()" >Logout</button>
+                                    </div>
+                                    <img src="../../../assets/images/verified.svg" class="verifiedimg">
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+
+<!-- Modal -->
+<ng-template #content let-modal>
+  <div class="modal-header">
+      <h6 class="book-another-therapist-title">Bookus</h6>
+  </div>
+  <div class="modal-body">
+    <div class="success-wrapper">
+        <div class="signature-info mb-4">
+            <p>Given booking time is finished, You need to select another time slot.</p>
+        </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-dark book-another-therapist" (click)="selectAnotherTimeSlot()">Select Another Time Slot</button>
+  </div>
+</ng-template>
+

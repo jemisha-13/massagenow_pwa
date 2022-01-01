@@ -1,0 +1,41 @@
+
+.imgstyle{
+  width: 77%;
+  box-shadow: 0 10px 16px 0 rgb(0 0 0 / 14%), 0 6px 20px 0 rgb(0 0 0 / 0%) !important
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: 0.3s;
+}
+.text{
+  font-size: 14px;
+  // white-space: nowrap;
+  overflow: hidden;
+  // text-overflow: ellipsis;
+  font-weight: bold;
+}
+.card-text{
+  font-size: 12px;
+}
+.notification{
+  margin-bottom: 50px;
+}
+.outerdiv-text{
+  display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.noti-block{
+  display: flex;
+  gap: 1rem;
+  box-shadow: 0 10px 16px 0 rgb(0 0 0 / 14%), 0 6px 20px 0 rgb(0 0 0 / 0%) !important;
+  padding: 12px 10px;
+}
+.app-logo{
+  width: 100px;
+}
+.notification{
+  .btn-dark{
+    font-size: 12px;
+  }
+}

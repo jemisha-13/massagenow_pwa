@@ -1,0 +1,44 @@
+
+<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+<div class="container-toast">
+  <span *ngFor="let d of toastMsg; let i = index">
+    <!-- Success Section -->
+    <div class="toast-spacing alert-msg list-inline" *ngIf="d && d.type === 'success' && i < 2">
+      <p class="success-create">
+        <span>
+          <img src="assets/icons/toast-success.png" style="width:40px">
+          <!-- <span class="material-icons">
+            check_circle_outline
+            </span> -->
+      </span>
+      {{d.text}}
+    </p>
+    </div>
+
+    <!-- Error Section -->
+    <div class="toast-spacing alert-msg-error list-inline" *ngIf="d && d.type === 'error' && i < 2">
+      <p class="error-create">
+        <span>
+          <img src="assets/icons/toast-failure.png" style="width: 40px;">
+          <!-- <span class="material-icons">
+            highlight_off
+            </span> -->
+      </span>
+      {{d.text}}
+    </p>
+    </div>
+
+    <!-- Info Section -->
+    <div class="toast-spacing alert-msg-info list-inline" *ngIf="d && d.type === 'info' && i < 2">
+      <p class="info-create">
+        <span>
+          <span class="material-icons">
+            error_outline
+            </span>
+      </span>
+      {{d.text}}
+    </p>
+    </div>
+  </span>
+</div>
+

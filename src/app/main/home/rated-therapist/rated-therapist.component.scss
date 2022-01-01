@@ -1,0 +1,952 @@
+.main {
+  margin: 10px 0 100px 0;
+  position: relative;
+
+  @media all and (max-width: 767px) {
+    margin-top: 0;
+  }
+}
+
+.header {
+  @media all and (max-width:767px) {
+    display: flex;
+    width: 100%;
+    background-color: black;
+    justify-content: space-between;
+    margin-top: 11px;
+    height: 35px;
+    padding: 0 20px;
+  }
+
+}
+
+.headerWeb {
+  width: 100%;
+  background-color: black;
+  justify-content: space-between;
+  margin-top: 5px;
+  height: 35px;
+
+  @media all and (max-width:767px) {
+    display: none;
+  }
+}
+
+.location {
+  background-color: #90C63E;
+  color: white;
+  text-align: center;
+}
+
+.locationText {
+  padding-top: 6px;
+}
+
+.referalSource {
+  background-color: #C3C3C3;
+  color: white;
+  text-align: center;
+
+  @media all and (max-width:767px) {
+    display: none;
+  }
+
+}
+
+.locationText {
+  padding-top: 6px;
+  color: black;
+  font-weight: 600;
+}
+
+.fixed-header {
+
+  // position: inherit;
+  @media all and (max-width:767px) {
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 38px;
+  }
+
+}
+
+.forget {
+  display: none;
+
+  @media all and (max-width:767px) {
+    color: white;
+    // margin-left: 40px;
+    // padding-top: 5px;
+    display: block;
+
+  }
+
+  // font-size:20px ;
+}
+
+.heart {
+  display: none;
+
+  @media all and (max-width:767px) {
+    color: white;
+    font-size: 22px;
+    padding-top: 5px;
+    display: block;
+  }
+
+
+}
+
+.bi-icon-class {
+  position: absolute !important;
+  font-size: 30px !important;
+  font-weight: 600 !important;
+  margin-left: 9px !important;
+  color: white;
+  margin-top: -15px;
+  padding-top: 5px;
+
+  // margin-top: 20px;
+}
+
+.gender {
+  display: none;
+
+  @media all and (max-width:767px) {
+    /* position: absolute !important; */
+    font-size: 17px !important;
+    font-weight: 600 !important;
+    margin-left: 9px !important;
+    color: #17a2b8;
+    /* margin-top: 2px; */
+    /* padding-top: 5px; */
+    display: block;
+  }
+
+}
+
+.crd {
+  // width: 100%;
+  position: relative;
+  height: 426px;
+
+  @media all and (max-width: 767px) {
+    height: 100%;
+    margin-top: 3px;
+    background-color: black;
+    position: relative;
+    // height: 426px;
+  }
+}
+
+.refer {
+  background-color: #313030;
+  width: 335px;
+  color: white;
+  padding-left: 30px;
+}
+
+.footer {
+  // display: flex;
+  // width: 100%;
+  // position: absolute;
+  // background-color: #000000;
+  // justify-content: space-between;
+  // bottom: 0;
+  display: none;
+
+  @media all and (max-width: 767px) {
+    margin-top: 0;
+    display: flex;
+    width: 100%;
+    position: absolute;
+    background-color: #08070730;
+    justify-content: space-between;
+    bottom: 0;
+  }
+}
+
+.webfooter {
+  // display: flex;
+  width: 100%;
+  position: absolute;
+  background-color: #ffffff57;
+  justify-content: space-between;
+  bottom: 0;
+  // margin-bottom: 5px;
+  padding: 5px 0;
+
+  @media all and (max-width:767px) {
+    // display: none;
+  }
+}
+
+.webgender {
+  // position: absolute !important;
+  // font-size: 20px !important;
+  // font-weight: 600 !important;
+  // margin-left: 9px !important;
+  // color: pink;
+  // margin-top: 2px;
+  // padding-top: 3px;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  margin-left: 9px !important;
+  color: pink;
+
+  @media all and (max-width:767px) {
+    // display: none;
+  }
+
+}
+
+.webforget {
+  color: white;
+  margin-left: 40px;
+  // padding-top: 5px;
+  display: block;
+
+  @media all and (max-width:767px) {
+    display: none;
+  }
+}
+
+.webgreenIcon {
+  background-color: green;
+  color: white;
+  font-size: 25px;
+  margin-right: 10px;
+
+  @media all and (max-width:767px) {
+    display: none;
+  }
+}
+
+.greenIcon {
+  display: none;
+
+  @media all and (max-width:767px) {
+    background-color: #1a1919;
+    color: white;
+    font-size: 22px;
+    margin-top: 6px;
+    display: block;
+  }
+
+}
+
+.imagebody-wrapper {
+  //     width: 868px;
+  //   height: 487px;
+//   width: 322px;
+//   height: 400px;
+
+  // margin: 0 auto;
+  @media all and (max-width:767px) {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .imagebody {
+    // width: 295px;
+    height: 320px;
+    width: 100%;
+
+    // margin: 0 auto;
+    @media all and (max-width: 767px) {
+      // width: 203px;
+      height: 185px;
+      margin: 0 0;
+      margin-top: 43px
+    }
+  }
+}
+
+.imgcover {
+  width: 540px;
+  height: 400px;
+
+  @media all and(max-width:767px) {
+    // border-radius: 50%;
+    width: 100%;
+    height: 100%;
+  }
+
+}
+
+.hand {
+  display: flex;
+  width: 25px;
+  justify-content: space-between;
+
+  .rise {
+    height: 28px;
+    width: 80px;
+    border-radius: 0px;
+    border: none;
+
+    @media all and (max-width:767px) {
+      display: none;
+
+    }
+
+  }
+}
+
+.new {
+  height: 28px;
+  width: 120px;
+  margin-left: 12px;
+  border-radius: 0px;
+  border: none;
+
+  @media all and (max-width:767px) {
+    display: none;
+  }
+}
+
+.hnd {
+  width: 100%;
+  height: 100%;
+  margin-left: 12px;
+
+  @media all and (max-width:767px) {
+    width: 100%;
+    height: 100%;
+    padding-top: 15px;
+    color: hsl(46, 96%, 45%);
+    display: block;
+  }
+
+}
+
+.flag {
+  color: red;
+  margin-left: 12px;
+  font-size: 25px;
+
+  @media all and (max-width:767px) {
+    display: none;
+  }
+}
+
+.owner {
+  display: flex;
+  margin-bottom: 2px;
+  font-size: 14px;
+  gap: 0.2rem;
+
+  .ownerText {
+    // margin-left: 10px;
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+  .ownerIcon{
+    flex-basis: 20px;
+  }
+}
+
+.introMain-wrapper {
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+
+  .introImg {
+    object-fit: cover;
+    width: 100px;
+    height: 100px;
+
+    img {
+      border-radius: 0;
+    }
+  }
+}
+
+// .mainTopImg {
+//     margin: 0 -15px;
+// }
+
+.work {
+  padding: 5px 10px;
+  text-align: start;
+}
+
+.mainline {
+  border-bottom: 1px solid;
+  color: #b6b3b3;
+  padding-top: 10px;
+
+  @media all and (max-width:767px) {
+    border-bottom: 1px solid;
+    color: black;
+    padding-top: 1px;
+  }
+}
+
+.line {
+  @media all and (max-width:767px) {
+    border-bottom: 1px solid;
+    color: black;
+    padding-top: 1px;
+  }
+}
+
+.imgline {
+  @media all and (max-width:767px) {
+    border-bottom: 1px solid;
+    color: black;
+    padding-top: 1px;
+    margin-left: 127px;
+  }
+
+}
+
+.web {
+  display: flex;
+}
+
+// .profile{
+//     margin-bottom: 2px;
+// }
+
+.profile {
+  background: #fff;
+}
+
+.book {
+  margin-top: 59px;
+  height: 46px;
+}
+
+.fixed-book {
+  position: fixed;
+  bottom: 45px;
+  width: 100%;
+  left: 0;
+  @media all and (max-width: 767px) {
+      bottom: 0;
+  }
+
+}
+.card-title-city{
+    font-size: 15px;
+}
+.book {
+  display: none;
+
+  @media all and (max-width: 767px) {
+    display: block;
+  }
+}
+
+.bookNew {
+  margin-top: 59px;
+  height: 46px;
+
+  @media all and (max-width:767px) {
+    display: none;
+  }
+
+}
+
+.therapist {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  color: white;
+
+}
+
+.therapistNew {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  color: white;
+
+  @media all and (max-width: 767px) {
+    display: none;
+  }
+}
+
+.mobile-pad {
+  @media all and (max-width: 767px) {
+    padding: 0;
+  }
+}
+
+.name {
+  @media all and (max-width:767px) {
+    display: none;
+  }
+}
+
+.workFor {
+  display: none;
+
+  @media all and (max-width:767px) {
+    display: block;
+  }
+}
+
+.card {
+  position: relative;
+  width: 300px;
+  height: 331px;
+
+  @media all and (max-width:767px) {
+    display: none;
+  }
+}
+
+.km {
+  position: absolute;
+  font-size: 15px;
+  margin-top: 5px;
+
+  @media all and (max-width:767px) {
+    display: none;
+  }
+}
+
+.tag {
+  height: 23px;
+  width: 68px;
+  border-radius: 0px;
+  border: none;
+  display: flex;
+  justify-content: flex-end;
+  background-color: white;
+  margin-left: 213px;
+
+  @media all and (max-width:767px) {
+    display: none;
+  }
+}
+
+.card-data {
+  // position: absolute;
+  // width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  @media all and (max-width:767px) {
+    display: none;
+  }
+}
+
+.card-dynamic {
+  background-color: #ffffff;
+  margin-bottom: 20px;
+  color: #000000;
+  text-align: center;
+  vertical-align: middle;
+  width: 684px;
+}
+
+.mat-card {
+  background: #fff;
+  border-radius: 2px;
+  display: inline-block;
+  margin: 2px;
+  position: relative;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.card-vertical {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+}
+
+.card-vertical:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.card-img-new {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.card_data_size {
+  font-size: 17px;
+  margin-top: 8px;
+  padding: 0 15px;
+}
+
+.km {
+  // position: relative;
+  height: 28px;
+  width: 80px;
+  border-radius: 0px;
+  border: none;
+
+  @media all and (max-width:767px) {
+    display: none;
+
+  }
+}
+
+
+.footer-outer-wrapper {
+  position: relative;
+
+  .webfooter {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.hand-image {
+  position: relative;
+  text-align: center;
+  padding: 5px 0;
+  color: Black;
+  .hnd-mobile{
+    width: 21px;
+    height: 28px;
+}
+  @media all and (max-width:767px) {
+    .hnd-mobile{
+
+    width: 18px;
+    height: 30px;
+
+    }
+  }
+}
+
+
+
+.centered {
+  position: absolute;
+  top: 61%;
+  font-size: 11px;
+  left: 62%;
+  transform: translate(-50%, -50%);
+}
+
+.location-work {
+    .outerScroll {
+        display: flex;
+        max-width: 1100px;
+        overflow-x: scroll;
+        width: 100%;
+    }
+    .card-outer-wrapper {
+        width: 100%;
+        margin-right: 20px;
+    }
+    .card {
+        // width: 100%;
+        margin-bottom: 20px;
+    }
+    .workImg {
+        width: 100px;
+        img {
+            width: 100%;
+            object-fit: cover;
+            width: 299px;
+            height: 200px;
+        }
+    }
+
+}
+
+.therapist-detail-block{
+  padding: 10px 0;
+  p{
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.header-title{
+  font-size: 19px;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.therapist-block{
+  width: 100%;
+  .therapist-name {
+    display: flex;
+    background-color: #1a1919;
+    justify-content: space-between;
+    padding-inline: 10px;
+    position: relative;
+  }
+}
+
+.therapist-icon {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 5px 0;
+}
+.therapist-like{
+  color: white;
+  position: fixed;
+  top: 18px;
+  z-index: 9999;
+  right: 14px;
+}
+.therapist-like.active{
+  color: red;
+}
+.therapist-wrapper {
+  height: calc(100vh - 35px);
+  overflow: auto;
+}
+body{
+  overflow: hidden;
+}
+.shop-rating{
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+}
+.work{
+  p{
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.introImg{
+  .imgcover{
+    width: 90% !important;
+    height: 90% !important;
+  }
+}
+.font-13{
+  font-size: 13px;
+}
+
+.therapist-icons{
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.therapist-heart{
+  color: white;
+}
+.therapist-heart.active{
+  color: red;
+}
+
+.desktop-view{
+  padding-top: 70px !important;
+  .therapist-header{
+    margin-top: 15px;
+  }
+  .therapistInfo{
+    padding: 10px 30px;
+    .imgcover {
+      width: 100%;
+      height: 300px;
+    }
+    .crd {
+      position: relative;
+      height: 300px;
+    }
+    .therapist-name{
+      .forget{
+        display: block;
+        color: white;
+        font-size: 14px;
+      }
+      .greenIcon {
+        display: block;
+        color: white;
+        margin-top: 5px;
+        font-size: 20px;
+      }
+    }
+    .profile{
+      .name{
+        font-size: 17px !important;
+      }
+      .hand{
+        button{
+          font-size: 13px;
+        }
+        .hand-image{
+          padding: 0px 7px !important;
+          // width: 18px !important;
+          // height: auto !important;
+        }
+        .flag{
+          font-size: 20px !important;
+          margin-left: 0;
+        }
+        .centered{
+          left: 59%;
+        }
+      }
+      .owner{
+        line-height: 2;
+      }
+      .bookNew{
+          margin-top: 0px !important;
+      }
+    }
+  }
+  .therapist-info-block{
+    margin-top: 15px;
+  }
+  .therapist-workfor{
+    .workFor{
+      display: block;
+      .row{
+        padding: 5px 30px;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .introMain-wrapper{
+        box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+        transition: 0.3s;
+        padding: 0px;
+        flex-basis: 300px;
+        display: block;
+        .introImg{
+          height: 190px;
+          width: auto;
+          .imgcover{
+            width: 100% !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+.mobile-view{
+  padding: 0;
+  padding-top: 0 !important;
+  .therapistInfo{
+    height: calc(100vh - 40px);
+    overflow: auto;
+    overflow-x: hidden;
+    .imgcover {
+      width: 100%;
+      height: 100%;
+    }
+    .crd {
+      position: relative;
+      height: 300px;
+      .imagebody{
+        height: 252px;
+        margin: 0 0;
+        margin-top: 43px;
+      }
+    }
+    .therapist-name{
+      .forget{
+        display: block;
+        color: white;
+        font-size: 14px;
+      }
+      .greenIcon {
+        display: block;
+        color: white;
+        margin-top: 5px;
+        font-size: 20px;
+      }
+      .therapist-heart{
+        display: none;
+      }
+    }
+    .profile{
+      padding: 0px 30px;
+      height: 250px;
+      .name{
+        font-size: 17px !important;
+      }
+      .hand{
+        padding: 5px 0;
+        button{
+          font-size: 13px;
+        }
+        .hand-image{
+          padding: 0px 7px !important;
+        }
+        .flag{
+          font-size: 20px !important;
+          margin-left: 0;
+        }
+        .centered{
+          left: 59%;
+        }
+      }
+      .owner{
+        line-height: 2;
+      }
+      .bookNew{
+          display: block;
+          margin-top: 0px !important;
+          .therapistNew{
+            display: block;
+            position: fixed;
+            height: inherit;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            right: 0;
+          }
+      }
+    }
+  }
+  .therapist-info-block{
+    padding: 0px 15px;
+  }
+  .therapist-workfor{
+    padding: 10px 15px;
+    .workFor{
+      display: block;
+      .row{
+        padding: 5px 18px;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .introMain-wrapper{
+        box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+        transition: 0.3s;
+        padding: 10px 15px;
+        flex-basis: 100%;
+        gap: 1rem;
+        .introImg{
+          height: auto;
+          width: auto;
+          .imgcover{
+            height: 100px !important;
+            width: 130px !important;
+          }
+        }
+      }
+    }
+  }
+  body{
+    overflow: hidden;
+  }
+}
+.therapist-rating{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  a{
+    color: black;
+  }
+}

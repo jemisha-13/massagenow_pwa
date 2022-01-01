@@ -1,0 +1,81 @@
+<div class="parentLoader" *ngIf="isLoading">
+    <app-custom-spinner></app-custom-spinner>
+</div>
+<div class="container mt-4" *ngIf="!isLoading">
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="mb-5 p-5 card-body">
+                <div class="text-center">
+                    <span class="text-warning"><img src="../../../assets/images/bookus-new.png"></span>
+                </div>
+                <p class="text-align-center">BookUS</p>
+                <p class="text-align-center">LOGIN TO YOUR ACCOUNT</p>
+
+                <!-- Start Form-->
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)"> 
+                    <!--Email Input-->
+                    <div class="form-group ">
+                        <input type="email" class="form-control" formControlName="email"
+                            placeholder="Email"  [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                <div *ngIf="f.email.errors.required">Email is required</div>
+                              </div>
+                    </div>
+                    <!--End Email Input-->
+
+                    <!--Password-->
+                    <div class="form-group ">
+                        <input type="password" name="password" class="form-control"formControlName="password"
+                            placeholder="Password"  [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                <div *ngIf="f.password.errors.required">Password is required</div>
+                              </div>
+                    </div>
+                    <!--End Password Input-->
+
+                    <!--Forgot Password-->
+                    <div class="form-group mt-2 text-right">
+                        <a  class="text font-weight-bold" name="forget_password" (click)="navigateToForgetPassword()">Forgot password?</a>
+                    </div>
+                    <!--End Forgot Password-->
+
+                    <!--Login Button-->
+                    <button type="submit" class="btn btn-primary btn-block rounded-pill loginbtn"
+                        name="login">Log in</button>
+                    <!--End Login Button-->
+
+                    <h6 class="mt-3 account1 text-center"> Don't Have an account ?</h6>
+                    <h6 class="mt-2 account"> <a (click)="navigateToSignup()" class="account">Sign Up</a></h6>
+
+                    <div class="row py-2">
+                        <div class="col-5">
+                            <hr>
+                        </div>
+                        <div class="col-2 text-center">
+                            or
+                        </div>
+                        <div class="col-5">
+                              <hr>
+                        </div>
+                    </div>
+                </form>
+                <!--End From-->
+
+                  <!-- Login With Facebook-->
+
+                  <div>
+                    <a class="btn-fb">
+                        <div class="fb-content">
+                            <div class="logo">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block facebookbtn">Login in with
+                                Facebook</button>
+                        </div>
+                    </a>
+                </div>
+                <!--End Login With Facebook-->
+                </div>
+            </div>
+        </div>
+    </div>

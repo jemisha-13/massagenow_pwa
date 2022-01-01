@@ -1,0 +1,162 @@
+
+
+.top-spacing {
+  padding-top: 75px;
+  padding-bottom: 55px;
+}
+.homeimg{
+  width: 45% !important;
+  margin-left: 27px;
+}
+.search-field {
+  .input-group {
+    position: relative;
+    .searchIcon {
+      position: absolute;
+      left: 10px;
+      top: 14px;
+      z-index: 3;
+    }
+  }
+  input {
+    padding-left: 35px;
+  }
+}
+.form-control {
+  height: calc(2.5em + .75rem + 2px);
+}
+
+.image-div-1{
+  position: absolute;
+
+  img{
+    margin: 24% 12% 0% 14%;
+    width: calc(100vw - 2rem - 26%);
+  }
+  .d-flex{
+    font-size: 38px;
+    font-weight: bold;
+    margin: 4% 2% 0% 10%;
+    width: calc(100vw - 2rem - 26%);
+  }
+  .viewmorebtn {
+    border: 1px solid;
+    font-size: 33px;
+    padding: 20px;
+    margin: 20% 0%;
+  }
+}
+.mt-my-5 {
+    margin-top : 2.5rem !important;
+}
+.imgstyle{
+    width: 100%;
+    box-shadow: 0 0px 7px 0 rgba(0, 0, 0, 0.2), 0 1px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .card {
+    border: none;
+  }
+  .card-text{
+    font-size: 12px;
+    font-size: 15px;
+    display: block;
+    text-align: left;
+    margin-bottom: 10px;
+  }
+  .textsize{
+      font-size: 12px;
+      margin-top: 5px;
+  }
+  .datestyle{
+    margin-left: 8px;
+    color: #989696;
+    font-weight: 600;
+  }
+  .text{
+      margin-right: 85px;
+      font-size: 13px;
+  }
+  .pricing{
+     font-size: 12px;
+  }
+  .text-right{
+      margin-top: 25px;
+  }
+  .fa-whatsapp:before {
+   color: #28a745!important;
+}
+ .cardposition{
+     margin-bottom: 50px;
+     margin-top: 30px;
+ }
+
+ .font-20{
+  font-size: 20px;
+}
+ .font-16{
+  font-size: 16px;
+}
+.font-14{
+  font-size: 14px;
+}
+ .font-12{
+  font-size: 12px;
+}
+
+.therapist-details{
+  padding: 10px;
+  display: flex;
+}
+.therapist-img {
+  width: 100px;
+
+  img {
+    box-shadow: -1px 0px 10px 0px #9e9e9e;
+  }
+}
+.upcoming-right-block {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  border-bottom: 1px solid #cac8c8;
+}
+.upcoming-text{
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+}
+.upcoming-text img {
+  width: 25px;
+  margin: 0 5px;
+}
+.therapist-img img {
+  width: 70px;
+  height: 66px;
+  border-radius: 10px;
+}
+
+.full {
+  color: black;
+}
+.half {
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  color: black;
+}
+.disable-link{
+  pointer-events: none;
+}
+.enable-link{
+ pointer-events: painted;
+}
+
+
+
+
+
+
+
+

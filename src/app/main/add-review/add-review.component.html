@@ -1,0 +1,159 @@
+<div class="main-Content" style="background-color: #efeded;">
+  <!-- <div class="card mb-4">
+    <div class="card-body">
+        <div class="row">
+
+        </div>
+    </div>
+</div> -->
+<div class="card mb-2">
+  <div class="card-body">
+      <div class="anonymous-block">
+        <div class="form-check mb-3" style="margin-left: 2px;">
+          <label class="form-check-label reviewTherapistSpan" for="anonymousCheck">
+            <input type="checkbox" class="form-check-input " id="anonymousCheck" [(ngModel)]="anonymousCheck">
+            <span>
+              Tick here to show your name on this review,
+              otherwise we will keep it anonymous.
+            </span>
+          </label>
+        </div>
+      </div>
+      <div class="therapist-block">
+        <div class="row">
+            <div class="therapistCard card-title d-flex">
+                <div class="col-md-2" style="width: 40px;">
+                    <img  class="rounded-circle" alt="Cinque Terre" width="30" height="30" src="../../../assets/images/gift-card.svg" alt="">
+                </div>
+                <div class="col-md-10">
+                    <h5  class="threapistHeading mb-0">Review your therapist</h5>
+                </div>
+            </div>
+        </div>
+        <div style="padding-top:2px">
+            <!-- <div class="row mb-2">
+                <div class="card-startTop d-flex align-items-center justify-content-between w-100">
+                    <div class="col-md-4">
+                        <span>Overall Rating</span>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="startMain-wrapper" *ngIf="isOverAllRating">
+                            <ngx-stars #overall [readonly]="false" [size]="2" [initialStars]="overAllRating" color="darkorange"  (ratingOutput)="overAllRate($event)"></ngx-stars>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <div class="mb-2">
+              <div class="card-startTop text-center w-100">
+                  <label>Overall</label>
+                  <div class="startMain-wrapper" *ngIf="isOverAllRating">
+                      <ngx-stars #overall [readonly]="false" [size]="2" [initialStars]="overAllRating" color="darkorange"  (ratingOutput)="overAllRate($event)"></ngx-stars>
+                  </div>
+              </div>
+            </div>
+            <div class="mb-2">
+              <div class="card-startTop text-center w-100">
+                  <label>Skills Rating</label>
+                  <p class="color-grey">How was your therapist's professional skills?</p>
+                  <div class="startMain-wrapper" *ngIf="isSkillRating">
+                    <ngx-stars #skill [readonly]="false" [size]="2" [initialStars]="skillsRating" color="darkorange"   (ratingOutput)="skillsRate($event)"></ngx-stars>
+                </div>
+              </div>
+            </div>
+            <div class="mb-2">
+              <div class="card-startTop text-center w-100">
+                  <label>Communication Skills</label>
+                  <p class="color-grey">Did your therapist communicate with you during the treatment</p>
+                  <div class="startMain-wrapper" *ngIf="isCommunicationRating">
+                    <ngx-stars #communication [readonly]="false" [size]="2" [initialStars]="communicationRating" color="darkorange"  (ratingOutput)="communicationRate($event)"></ngx-stars>
+                  </div>
+              </div>
+            </div>
+            <!-- <div class="row mb-2">
+                <div class="card-startTop d-flex align-items-center justify-content-between w-100">
+                    <div class="col-md-4">
+                        <span>Communication Rating</span>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="startMain-wrapper" *ngIf="isCommunicationRating">
+                            <ngx-stars #communication [readonly]="false" [size]="2" [initialStars]="communicationRating" color="darkorange"  (ratingOutput)="communicationRate($event)"></ngx-stars>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+            <!-- <div class="row mb-2">
+                <div class="card-startTop d-flex align-items-center justify-content-between w-100">
+                    <div class="col-md-4">
+                        <span>Skills Rating</span>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="startMain-wrapper" *ngIf="isSkillRating">
+                            <ngx-stars #skill [readonly]="false" [size]="2" [initialStars]="skillsRating" color="darkorange"   (ratingOutput)="skillsRate($event)"></ngx-stars>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <div class="mb-2">
+              <div class="card-startTop text-center w-100">
+                  <label>Service Rating</label>
+                  <p class="color-grey">Was your therapist friendly? Smile to you? Ask you if you need water after treatment</p>
+                  <div class="startMain-wrapper" *ngIf="isServiceRating">
+                    <ngx-stars #service  [readonly]="false" [size]="2" [initialStars]="serviceRating" color="darkorange"  (ratingOutput)="serviceRate($event)"></ngx-stars>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="row mb-2">
+                <div class="card-startTop d-flex align-items-center justify-content-between w-100">
+                    <div class="col-md-4">
+                        <span>Service Rating</span>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="startMain-wrapper" *ngIf="isServiceRating">
+                            <ngx-stars #service  [readonly]="false" [size]="2" [initialStars]="serviceRating" color="darkorange"  (ratingOutput)="serviceRate($event)"></ngx-stars>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+        <form>
+          <div class="form-group commentBox mb-1">
+              <div class="form-check mb-3" style="margin-left: 2px;" >
+                  <input type="checkbox" class="form-check-input " id="redFlagCheck" [(ngModel)]="redFlagCheck"
+                  [ngModelOptions]="{standalone: true}" >
+                  <label class="form-check-label reviewTherapistSpan" for="redFlagCheck"><i class="fa fa-flag" aria-hidden="true" style="color: red;"></i>&nbsp; Therapist offered sexual service</label>
+              </div>
+              <textarea class="form-control" id="commentBox" rows="3" placeholder="Review your therapist" [(ngModel)]="reviewTheRapist" name="reviewTheRapist"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="shop-block">
+        <div class="row">
+          <div class="therapistCard card-title">
+              <div style="width: 40px;">
+                  <img  class="rounded-circle" alt="Cinque Terre" width="30" height="30" src="../../../assets/images/gift-card.svg" alt="">
+              </div>
+              <p class="mb-0" style="font-weight: 600;">Review the Shop</p>
+          </div>
+        </div>
+        <div style="padding-top:2px">
+            <div class="mb-2">
+              <div class="card-startTop text-center w-100">
+                  <label>Herbal Massage center</label>
+                  <p class="color-grey">Review the shop based on cleaniness, management and facility.</p>
+                  <div class="startMain-wrapper">
+                    <ngx-stars  [readonly]="false" [size]="2" [initialStars]="herbalMassageRating" color="darkorange" (ratingOutput)="herbalMassageRate($event)"></ngx-stars>
+                  </div>
+              </div>
+            </div>
+        </div>
+        <form>
+          <div class="form-group commentBox">
+              <textarea class="form-control" id="commentBox" rows="3" placeholder="Review the business based on their cleanliness, managment and environment" [(ngModel)]="reviewTheBusiness" name="reviewTheBusiness"></textarea>
+          </div>
+        </form>
+      </div>
+  </div>
+</div>
+  <button class="btn btn-dark submit_button" (click)="submitReview()">SUBMIT</button>
+</div>

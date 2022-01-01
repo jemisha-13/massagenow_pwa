@@ -1,0 +1,123 @@
+<div class="parentLoader"*ngIf="isLoading">
+  <app-custom-spinner></app-custom-spinner>
+</div>
+<div class="myProfile" *ngIf="myProfiledata">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <div class="profile-Img" (click)="navigateBack()">
+                    <ng-container (click)="navigateBack()">
+                        <i class="bi bi-arrow-left-short bi-icon-class mobileView"></i>
+                    </ng-container>
+                    <img src="../../../assets/images/national-cancer-institute-Ccf83bIVY3Q-unsplash.jpg" class="w-100 mobileView">
+                    <img [src]="myProfiledata?.image || '../../../assets/images/default_circle.svg'" class="w-100 desktopView" style="max-height: 360px;">
+                    <div class="greenIcon">
+                        <img src="../../../assets/images/verified.svg" alt="verified" />
+                    </div>
+                </div>
+                <div class="profileName d-flex align-items-ceter">
+                    <h5 class="mb-0">{{myProfiledata?.firstName }}</h5>
+                    <img src="../../../assets/images/bronze_badge.svg" class="ml-3" alt="badge" />
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-12 padd-0">
+                <div class="profileForm">
+                    <div class="mobileView">
+                        <div class="userImg">
+                            <img [src]="myProfiledata?.image || '../../../assets/images/default_circle.svg'"  />
+                            <div class="greenIcon">
+                                <img src="../../../assets/images/verified.svg" alt="verified" />
+                            </div>
+                        </div>
+                        <div class="userMobileName d-flex justify-content-center mb-2">
+                            <h5 class="mb-0">{{myProfiledata?.firstName || 'Demo Name'}}</h5>
+                            <img src="../../../assets/images/bronze_badge.svg" class="ml-3" alt="badge" />
+                        </div>
+                    </div>
+                    <form>
+                        <div class="form-group">
+                            <div class="form-Inner d-flex align-items-center">
+                                <div class="formIcon">
+                                    <i class="fa fa-key"></i>
+                                </div>
+                                <div class="passwordEdit">
+                                    <div class="form-field">
+                                        <label for="exampleInputPassword1">Password</label>
+                                        <input type="password" class="form-control" id="password" value="fdhjasifdja"  placeholder="Password">
+                                        <div class="passwordPencil">
+                                            <img src="../../../assets/images/edit_schedule.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-Inner d-flex align-items-center">
+                                <div class="formIcon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <div class="form-field">
+                                    <label>Date Of Birth</label>
+                                    <p>{{myProfiledata?.dob | date:"dd-MM-yyyy"}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-Inner d-flex align-items-center">
+                                <div class="formIcon">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <div class="form-field">
+                                    <label>Gender</label>
+                                    <p>{{myProfiledata?.gender}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-Inner d-flex align-items-center">
+                                <div class="formIcon">
+                                    <i class="fa fa-phone"></i>
+                                </div>
+                                <div class="form-field">
+                                    <label>Phone</label>
+                                    <p>{{myProfiledata?.mobile}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-Inner d-flex align-items-center">
+                                <div class="formIcon">
+                                    <i class="fa fa-envelope"></i>
+                                </div>
+                                <div class="form-field">
+                                    <label>Email</label>
+                                    <p>{{myProfiledata?.email}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-Inner d-flex align-items-center">
+                                <div class="formIcon">
+                                    <i class="fa fa-map-marker"></i>
+                                </div>
+                                <div class="form-field">
+                                    <label>Address</label>
+                                    <p>{{myProfiledata?.address?.area}}, {{myProfiledata?.address?.street}}, {{myProfiledata?.address?.city}}, {{myProfiledata?.address?.state}}, {{myProfiledata?.address?.zip}}, {{myProfiledata?.address?.country}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="editProfileForm">
+                            <button class="btn btn-primary" (click)="editProfile()">Edit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mobileEditbtn">
+        <div class="editProfileForm">
+            <button class="btn btn-primary" (click)="editProfile()">Edit</button>
+        </div>
+    </div>
+</div>
+

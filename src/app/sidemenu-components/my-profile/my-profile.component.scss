@@ -1,0 +1,173 @@
+.myProfile {
+    margin-top: 70px;
+    position: relative;
+    @media all and (max-width: 767px) {
+        margin-top: 0px;
+    }
+    .profile-Img {
+        position: relative;
+        @media all and (max-width: 767px) {
+            margin: 0 -15px;
+        }
+        img {
+            border-radius: 20px;
+            border: solid 2px #000;
+            @media all and (max-width: 767px) {
+                border-radius: 0;
+                border: none;
+                opacity: 0.5;
+            }
+        }
+        .greenIcon {
+            position: absolute;
+            right: 0px;
+            bottom: 0px;
+        }
+        .bi-icon-class {
+            position: absolute !important;
+            font-size: 30px !important;
+            font-weight: 600 !important;
+            margin-left: 9px !important;
+        }
+    }
+    .profileName {
+        margin-top: 30px;
+        @media all and (max-width: 767px) {
+            display: none !important;
+        }
+    }
+    .profileForm {
+        background: #fff;
+        padding: 20px;
+        border-radius: 20px;
+        -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        @media all and (max-width: 767px) {
+            margin-top: -85px;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        form {
+            @media all and (max-width: 767px) {
+                margin-bottom: 85px;
+            }
+            .form-field {
+                width: 100%;
+            }
+            .form-control {
+                border: none !important;
+                border-radius: 0;
+                border-bottom: 1px solid #ced4da !important;
+                padding-left: 0;
+                padding-top: 0;
+                &:focus {
+                    outline: none;
+                    box-shadow: none;
+                }
+            }
+            .formIcon {
+                margin-right: 15px;
+            }
+            label {
+                margin-bottom: 0;
+            }
+        }
+        .editProfileForm {
+            .btn {
+                width: 100%;
+                background-color: #000;
+                border-color: #000;
+                border-radius: 0;
+                @media all and (max-width: 767px) {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+.passwordEdit {
+    position: relative;
+    .passwordPencil {
+        position: absolute;
+        top: 15px;
+        right: 0;
+    }
+}
+.padd-0 {
+    @media all and (max-width: 767px) {
+        padding: 0;
+    }
+}
+.mobileView {
+    display: none;
+    @media all and (max-width: 767px) {
+        display: block;
+    }
+    .userImg {
+        @media all and (max-width: 767px) {
+            width: 85px;
+            margin: -45px auto 20px;
+            height: 85px;
+            position: relative;
+        }
+        img {
+            @media all and (max-width: 767px) {
+                height: 100%;
+                width: 100%;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+        }
+    }
+    .greenIcon {
+        width: 20px;
+        position: absolute;
+        right: 5px;
+        bottom: 0;
+    }
+}
+.mobileEditbtn {
+    display: none;
+    @media all and (max-width: 767px) {
+        display: block;
+        position: absolute;
+        bottom: 46px;
+        width: 100%;
+    }
+    .btn {
+        width: 100%;
+        background-color: #000;
+        border-color: #000;
+        border-radius: 0;
+    }
+}
+
+form{
+  font-size: 14px;
+  .form-Inner {
+    display: flex !important;
+    align-items: baseline !important;
+  }
+  p{
+    margin-bottom: 0px;
+  }
+  label {
+    font-weight: 600;
+  }
+}
+@media all and (max-width: 767px) {
+.desktopView {
+        display: none;
+    }
+}
+@media all and (min-width: 767px) {
+    .myProfile {
+        margin-top: 100px;
+
+        .profileForm {
+            box-shadow: none;
+        }
+    }
+   
+}

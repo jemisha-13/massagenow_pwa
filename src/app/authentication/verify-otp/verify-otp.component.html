@@ -1,0 +1,17 @@
+<div>
+    <i class="bi bi-arrow-left-short bi-icon-class backIcon" (click)="navigateBack()"></i>
+    <p class="header">Enter Otp</p>
+</div>
+
+<div class="otp-wrapper">
+    <div class="container">
+        <div class="card">
+        <p class="a-o-i">Enter Otp</p>
+        <h5>Verification code has been sent to your registered email address</h5>
+        <ng-otp-input #ngOtpInput (onInputChange)="onOtpChange($event)" placeholder="0" [config]="config"></ng-otp-input>
+        <p class="mt-4 resend" (click)="resend()" >Resend</p>
+        <button class="verify" (click)="verify()">Verify</button>
+        <!-- <span *ngIf="otp" class="o-t-p">Entered otp :-{{otp}}</span> -->
+        </div>
+    </div>
+</div>

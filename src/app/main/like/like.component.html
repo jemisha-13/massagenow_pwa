@@ -1,0 +1,124 @@
+<div >
+    <div classs="row">
+        <div class="col-md-12 headerWeb location" id="myHeader">
+            <!-- <i class="bi bi-arrow-left-short bi-icon-class backIcon" (click)="navigateBack()"></i> -->
+            <div class="locationText" >{{location.formatted_address}}</div>
+            <!-- <div><i class="fa fa-heart heart"></i></div> -->
+        </div>
+    <div class="col-md-12 locationWeb referalSource" id="myHeader">
+        <!-- <i class="bi bi-arrow-left-short bi-icon-class backIcon" (click)="navigateBack()"></i> -->
+        <div class="locationText">My Favourites</div>
+        <!-- <div><i class="fa fa-heart heart"></i></div>
+        -->
+    </div>
+
+    </div>
+</div>
+<!-- mobile-view header end -->
+
+<div class="container-fluid " [ngClass]="{'mobile-view': isMobile, 'desktop-view': !isMobile}" *ngIf="!isLoading">
+    <div class="row bg-dark fixed-top mt-my-5">
+        <div class="col-6 text-center text-white" (click)="showContent('shop')">
+            <div [ngClass]="{'active':currTab =='shop'}">
+                <span>
+                    Shop
+                </span>
+            </div>
+        </div>
+        <div class="col-6 text-center text-white" (click)="showContent('therapist')">
+            <div [ngClass]="{'active':currTab =='therapist'}">
+                <span>
+                    Therapist
+                </span>
+            </div>
+        </div>
+    </div>
+    
+      <div class="schedule-tab" *ngIf="!isMobile">
+      <label for="">My favourite</label>
+        <div class="tabs">
+          <button class="btn" [ngClass]="{'active': currTab=='shop'}" (click)="showContent('shop')">Shop</button>
+          <button class="btn" [ngClass]="{'active': currTab=='therapist'}" (click)="showContent('therapist')">Therapist</button>
+        </div>
+      </div>
+    <br>
+    <br>
+    <br>
+    <div class="parentLoader"*ngIf="isLoading">
+        <app-custom-spinner></app-custom-spinner>
+    </div>
+    <div class="positionstyle" *ngIf="isContentType">
+        <div class="row" *ngIf="!isLoading">
+            <div class="col-md-6 col-sm-6 col-xs-12" *ngFor="let shopitem of shopList">
+                <div class="card adjustCard text-center mt-3">
+                    <div class="card">
+                        <img class="card-img-top"
+                            src="{{ (shopitem && shopitem.profileImg && shopitem.profileImg.img ) ? shopitem.profileImg.img : '../../../assets/images/no_image.png'}}"
+                            alt="Card image cap">
+                        <div class="card-body p-2">
+                            <div class="fonticon">
+                                <h5 class="card-title font-weight-bold">{{shopitem?.company.businessName}}</h5>
+                                <div class="like-socialIcon">
+                                    <a href="http://maps.google.com/?q={{shopitem.street}}"><img src="../../../assets/images/directions.svg" class="imgposition"></a> 
+                                    <!-- <a href="geo:{{shopitem.geo_location.coordinates[1]}},{{shopitem.geo_location.coordinates[0]}}"><img src="../../../assets/images/directions.svg" class="imgposition"></a>  -->
+                                    <a href="tel:{{shopitem.phone}}"><img src="../../../assets/images/call.svg" class="imgposition"></a>
+                                </div>
+                            </div>
+                            <p class="card-text mb-2"><i class="fa fa-star" aria-hidden="true"></i>
+                                <span class="ml-1">{{shopitem?.rating.star |number: '1.0-1' }} </span>
+                                <span class="ml-3">{{shopitem?.rating.star_count}} Ratings</span></p>
+                            <p class="subtext text-left">{{shopitem?.street}},{{shopitem?.city}},{{shopitem?.state}}</p>
+                        </div>
+                    </div>
+                    <div class="buttons-area">
+                        <button type="button" class="btn" (click)="displayPopup(shopitem, 'sopeDelete')">Delete</button>
+                        <button type="button" class="btn" (click)="viewshopDetails(shopitem)">Book</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" *ngIf="shopList.length == 0">
+            <div class="col-12">
+                <app-skeleton skeletonData="No Shop available"></app-skeleton>
+            </div>
+        </div>
+    </div>
+    <div class="parentLoader"*ngIf="isLoading">
+        <app-custom-spinner></app-custom-spinner>
+    </div>
+    <div class="positionstyle" *ngIf="!isContentType">
+        <div class="row" *ngIf="!isLoading">
+            <div class="col-md-6 col-sm-6 col-xs-12" *ngFor="let therapistitem of therapistList">
+                <div class="card therapist-card mt-3">
+                    <div class="card-body p-0 shadow">
+                        <div class="therapist-details">
+                            <div class="therapist-img">
+                                <img [src]="therapistitem.image" (error)="setDefaultPic($event)" />
+                            </div>
+                            <div class="therapist-text">
+                                <span>{{therapistitem?.firstName}} {{therapistitem?.lastName}}</span>
+                                <div class="star-wrapper">
+                                    <img src="../../../assets/images/grey_star.svg">
+                                    <img src="../../../assets/images/grey_star.svg">
+                                    <img src="../../../assets/images/grey_star.svg">
+                                    <img src="../../../assets/images/small_unfilled.svg">
+                                    <img src="../../../assets/images/small_unfilled.svg">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="buttons-area">
+                            <button type="button" class="btn" (click)="displayPopup(therapistitem, '')">Delete</button>
+                            <button type="button" class="btn" (click)="viewTherapistDetails(therapistitem)">Re-book</button>
+                            <button type="button" class="btn" (click)="tipTherapist(therapistitem)">Add Tip</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" *ngIf="therapistList.length == 0">
+            <div class="col-12">
+                <app-skeleton skeletonData="No Therapist available"></app-skeleton>
+            </div>
+        </div>
+    </div>
+</div>

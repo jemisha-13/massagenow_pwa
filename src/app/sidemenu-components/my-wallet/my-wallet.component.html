@@ -1,0 +1,48 @@
+<div class="parentLoader"*ngIf="isLoading">
+    <app-custom-spinner></app-custom-spinner>
+</div>
+<div class="walletMainpage" *ngIf="!isLoading"> 
+    <div class="container">
+        <div class="wallet">
+            <div class="row">
+                <div class="ballanceinnerwrapper">
+                    <div class="walletballance text-center">
+                        <img src="../../../assets/images/credit_card.svg">
+                        <div class="wallet-heading">
+                            <h6>Wallet Balance</h6>
+                        </div>
+                    </div>
+                    <div class="balance-amt">
+                        <h5 class="mb-0">$ <span>{{walletList.walletBalance}}</span></h5>
+                    </div>
+                </div>
+                <div class="bottomLine"></div>
+                <div class="walletMoney">
+                    <a>Add Money</a>
+                </div>
+            </div>
+        </div>
+        <div class="transactionsheader">
+            <div class="container">
+                <h5 class="mb-0">Transactions</h5>
+            </div>
+        </div>
+        <table class="table">
+            <tbody>
+                <tr *ngFor="let walletItem of walletList.result">
+                    <td>
+                        <div class="tableLeft">
+                            <span class="transactions">{{walletItem?.wallet}}</span>
+                            <span class="transactions">{{walletItem?.createdAt |date: 'yyyy-MM-dd'}}</span>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div>
+                            <span class="transactionsmoney"> + ${{walletItem?.amount}}</span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

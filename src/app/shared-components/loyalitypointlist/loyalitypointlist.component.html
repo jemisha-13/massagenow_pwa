@@ -1,0 +1,45 @@
+<div class="loyalityModal">
+    <div class="awardImg">
+        <i class="bi bi-arrow-left-circle-fill" (click)="moveLoyalityPage()"></i>
+    </div>
+    <div class="award-amount d-flex align-items-center justify-content-center">
+        <img src="../../../assets/images/gift-card.svg" alt="" class="mr-2" width="30" />
+        <span>{{have}}</span>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12" *ngFor="let loyalityItem of loyalityPointList ">
+                <div class="loyalityCard-wrapper">
+                    <div class="card-heading">
+                        <h5 class="mb-0">{{loyalityItem?.service}}</h5>
+                    </div>
+                    <div class="pointWrapper">
+                        <div class="wid-80">
+                            <p class="mb-0">Points earned :</p>
+                        </div>
+                        <div class="wid-40">
+                            <div class="point-value">
+                                <img src="../../../assets/images/giftbox@2x.png" alt="">
+                                {{loyalityItem?.have}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pointWrapper">
+                        <div class="wid-80">
+                            <p class="mb-0">Points redeemed :</p>
+                        </div>
+                        <div class="wid-40">
+                            <div class="point-value">
+                                <img src="../../../assets/images/openBox@2x.png" alt="">
+                                {{loyalityItem?.redeemed}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="earnedDate">
+                        <span>Earned on {{loyalityItem?.createdAt | date:'yyyy-MM-dd hh:mm a'}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

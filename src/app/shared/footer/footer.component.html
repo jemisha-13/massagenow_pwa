@@ -1,0 +1,177 @@
+
+<div class="parentFooter" *ngIf="ShowMobile">
+    <footer class="fixed-bottom bg-white footer-design" *ngIf="isHomeFooter">
+        <div class="container-fluid">
+            <div class="row p-2 ">
+                <div class="col-3 text-center" (click)="navigate('home')">
+                    <button type="button"
+                        [ngClass]="{'btn-circle btn-border' : presentUrl == 'home', 'btn-position' : presentUrl != 'home'}"
+                        class="btn btn-default">
+                        <i class="bi bi-house icon-color" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="col-3 text-center" (click)="navigate('schedule')">
+                    <button type="button"
+                        [ngClass]="{'btn-circle btn-border' : presentUrl == 'schedule', 'btn-position' : presentUrl != 'schedule'}"
+                        class="btn btn-default btn-position">
+                        <i class="bi bi-calendar icon-color" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="col-3 text-center" (click)="navigate('like')">
+                    <button type="button"
+                        [ngClass]="{'btn-circle btn-border' : presentUrl == 'like', 'btn-position' : presentUrl != 'like'}"
+                        class="btn btn-default btn-position">
+                        <i class="bi bi-heart icon-color" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="col-3 text-center" (click)="navigate('notifications')">
+                    <button type="button"
+                        [ngClass]="{'btn-circle btn-border' : presentUrl == 'notifications', 'btn-position' : presentUrl != 'notifications'}"
+                        class="btn btn-default btn-position">
+                        <i class="bi bi-bell icon-color" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+   
+  <!-- <div class="backgroundImg">
+    <div class="mainImg">
+
+    </div>
+  </div> -->
+<!-- Footer -->
+<div class="secondFooter" *ngIf="!ShowMobile">
+    <footer class="page-footer font-small footercolor" *ngIf="isHomeFooter">
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left mt-5">
+
+            <!-- Grid row -->
+            <div class="row mt-3">
+
+                <!-- Grid column -->
+                <div class="col-md-2 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <img src="../../../assets/images/BookUs_logo.png" class="bookusLogo">
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <!-- Links -->
+                    <h6 class="text-uppercase font-weight-bold">Massages</h6>
+                    <p>
+                        <a href="#!" class="textcolor">Deep Tissue</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="textcolor">Swedish Massage</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="textcolor">Sport Massage</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="textcolor">Trigger Point Message</a>
+                    </p>
+
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-2 col-xl-2 mx-auto mb-4">
+
+                    <!-- Links -->
+                    <h6 class="text-uppercase font-weight-bold">Therapies</h6>
+                    <p>
+                        <a href="#!" class="textcolor">Salt Therapy</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="textcolor">Hydro Therapy</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="textcolor">Aroma Therapy</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="textcolor">Turkish Sauna</a>
+                    </p>
+
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-2 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <!-- Links -->
+                    <h6 class="text-uppercase font-weight-bold">Mobile App</h6>
+                    <button type="button" class="btn btn-primary downloadapp"><i class="fa fa-download"></i>Download
+                        App</button>
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row -->
+
+        </div>
+        <!-- Footer Links -->
+    </footer>
+</div>
+<div class="largeDeviceFooter" *ngIf="!ShowMobile">
+    <footer class="desktop-footer" *ngIf="isHomeFooter">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="footer-text">
+                        <div class="locationIcon icon-wrapper">
+                            <i class="fa fa-map-marker"></i>
+                        </div>
+                        <div class="locationAddres">
+                            <span>51 Queen Street,Busselton,Zen Body Massage Mandurah Australia</span>
+                        </div>
+                    </div>
+                    <div class="footer-text">
+                        <div class="phoneIcon icon-wrapper">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <div class="phonenumber">
+                            <span>1300 633 393</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="footer-text">
+                        <div class="locationIcon icon-wrapper">
+                            <i class="fa fa-map-marker"></i>
+                        </div>
+                        <div class="locationAddres">
+                            <span>51 Queen Street,Busselton,Zen Body Massage Mandurah Australia</span>
+                        </div>
+                    </div>
+                    <div class="footer-text">
+                        <div class="phoneIcon icon-wrapper">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <div class="phonenumber">
+                            <span>1300 633 393</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="footer-text">
+                        <div class="locationIcon icon-wrapper">
+                            <i class="fa fa-map-marker"></i>
+                        </div>
+                        <div class="locationAddres">
+                            <span>51 Queen Street,Busselton,Zen Body Massage Mandurah Australia</span>
+                        </div>
+                    </div>
+                    <div class="footer-text">
+                        <div class="phoneIcon icon-wrapper">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <div class="phonenumber">
+                            <span>1300 633 393</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>

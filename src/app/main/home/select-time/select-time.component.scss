@@ -1,0 +1,69 @@
+.mat-card {
+    background: #fff;
+    border-radius: 2px;
+    display: grid;
+    margin: 2px;
+    position: relative;
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  .card_outerImg {
+    height: 200px;
+  }
+
+  .card-vertical {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  }
+  .card-vertical:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+
+  .card-data {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .card-dynamic {
+    background-color: #ffffff;
+    // margin-bottom: 12px;
+    color: #000000;
+    text-align: center;
+    vertical-align: middle;
+    width: 90px;
+  }
+
+  .box-structure {
+    padding: 6px !important;
+    margin-left: 0px;
+    margin-right: 0px;
+    gap: 1rem;
+    flex-basis: 100%;
+    margin-bottom: 10px;
+  }
+
+  .custom-button {
+      border-radius: 0rem !important;
+  }
+
+  .card-dynamic {
+    &.col-md-4 {
+      @media all and (max-width: 767px) {
+        width: 33.3% !important;
+      }
+    }
+  }
+
+  .card_data_size {
+    font-size: 15px;
+    padding: 8px 10px;
+    margin: auto;
+}
+::ng-deep #commonDatepicker {
+  .btn-light{
+    outline: none;
+  }
+}

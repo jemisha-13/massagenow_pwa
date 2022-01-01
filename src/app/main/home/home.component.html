@@ -1,0 +1,189 @@
+
+<div class="parentLoader"*ngIf="isLoading">
+    <app-custom-spinner></app-custom-spinner>
+</div>
+<div class="top-spacing" *ngIf="!isLoading">
+  <div class="p-3">
+    <div class="search-field">
+      <form>
+        <div class="input-group">
+          <input type="search" class="form-control rounded" placeholder="Search For Shop" aria-label="Search"
+            aria-describedby="search-addon" (focus)="navigateTosearchShop()"/>
+          <div class="searchIcon">
+            <i class="fa fa-search"></i>
+          </div>
+        </div>
+
+      </form>
+    </div>
+    <!-- rakesh -->
+<!-- <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://images.pexels.com/photos/1485894/pexels-photo-1485894.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+       <p><a href="https://codepen.io/himanshu-gupta-the-decoder/pen/QWGqWop">Himanshu Gupta</a></p>
+        <p> 1 Some representative placeholder content for the first slide<br>Some representative placeholder content for the second slide..</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://images.pexels.com/photos/1148998/pexels-photo-1148998.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <p><a href="https://codepen.io/himanshu-gupta-the-decoder/pen/QWGqWop">Himanshu Gupta</a></p>
+        <p> 2 Some representative placeholder content for the second slide
+          <br>Some representative placeholder content for the second slide..</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://images.pexels.com/photos/1595437/pexels-photo-1595437.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <p><a href="https://codepen.io/himanshu-gupta-the-decoder/pen/QWGqWop">Himanshu Gupta</a></p>
+        <p> 3 Some representative placeholder content for the third slide<br>Some representative placeholder content for the second slide..</p>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <img src="https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <p><a href="https://codepen.io/himanshu-gupta-the-decoder/pen/QWGqWop">Himanshu Gupta</a></p>
+        <p> 4 Some representative placeholder content for the third slide<br>Some representative placeholder content for the second slide..</p>
+      </div>
+    </div>
+
+
+
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"  data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"  data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div> -->
+<!-- rakesh end  -->
+    <div class="row">
+      <div class="col-8">
+        <p class="section-title mb">Popular shops around you</p>
+      </div>
+      <!-- <div class="col-4">
+        <a [routerLink]="['/main/home/recent']"><h6 class="recent-view-all">View All</h6></a>
+      </div> -->
+    </div>
+    <div class="row" >
+      <div class="scrolling-wrapper row flex-row flex-nowrap  pb-4  pl-3">
+        <ng-container *ngFor="let item of recentlyViewedList">
+          <div class="col-6" (click)="viewshopDetails(item)">
+            <div class="card card-block card-horiz">
+              <img
+                src="{{ (item && item.profileImg && item.profileImg.img ) ? item.profileImg.img : '../../../assets/images/no_image.png'}}"
+                class="card-img-horiz">
+              <div class="card-bottom-text">
+                <span class="bottom-header text">{{item?.company.businessName}}</span>
+                <p class="bottom-address text">{{item?.street}}, {{item?.city}}, {{item?.state}}, {{item?.zip}}</p>
+                <p><i class="fa fa-star" aria-hidden="true"></i>
+                  {{item?.rating.star | number : '1.1-1'}} Great <span class="bottom-address text">{{item?.rating.star_count}} Ratings</span></p>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="giftCard mt">
+      <div class="">
+        <p class="section-title">Service Categories</p>
+      </div>
+      <div class="">
+        <img src="../../../assets/images/gift-card.svg" class="homeimg">
+      </div>
+    </div>
+    <div class="card-data">
+      <div class="row">
+        <div *ngFor="let item of categoryData" class="card-dynamic col-lg-3 col-md-4 col-sm-4 col-xs-6">
+          <div class="mat-card card-vertical" (click)="selectCategory(item)">
+            <div class="card_outerImg">
+              <img [src]="item.image" class="card-img-new" alt="rere" (error)="setDefaultPic($event)">
+            </div>
+            <h5 class="card_data_size float-left">{{item?.name}}</h5>
+          </div>
+          <!-- TODO  <app-dynamic-card [componentData]="categoryList.image" [componentImage]="categoryList"></app-dynamic-card> -->
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-8">
+        <p class="section-title mb">Recently Viewed</p>
+      </div>
+      <div class="col-4">
+        <a [routerLink]="['/main/home/recent']"><h6 class="recent-view-all">View All</h6></a>
+      </div>
+    </div>
+    <div class="row" >
+      <div class="scrolling-wrapper row flex-row flex-nowrap  pb-4  pl-3">
+        <ng-container *ngFor="let item of recentlyViewedList">
+          <div class="col-lg-2 col-md-3 col-sm-3 col-xs-3" (click)="viewshopDetails(item)">
+            <div class="card card-block card-horiz">
+              <img
+                src="{{ (item && item.profileImg && item.profileImg.img ) ? item.profileImg.img : '../../../assets/images/no_image.png'}}"
+                class="card-img-horiz">
+              <div class="card-bottom-text">
+                <span class="bottom-header text">{{item?.company.businessName}}</span>
+                <p class="bottom-address text">{{item?.street}}, {{item?.city}}, {{item?.state}}, {{item?.zip}}</p>
+                <p><i class="fa fa-star" aria-hidden="true"></i>
+                  {{item?.rating.star | number : '1.1-1'}} Great <span class="bottom-address text">{{item?.rating.star_count}} Ratings</span></p>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="row footer-div">
+      <div class="col-12 mt-4">
+        <div class="footer-1">
+          <div class="image-div-1">
+            <img src="../../../assets/images/Group 3.png" width="100%">
+            <div class="d-flex justify-content-around">
+              <div>Download the app</div>
+              <div class="text-center">Purchase a Gift card
+                <div>
+                  <button class="btn viewmorebtn" type="button">Buy Giftcard</button>
+                </div>
+              </div>
+              <div>Send</div>
+            </div>
+
+
+          </div>
+
+          <img src="../../../assets/images/Group 8.png" width="100%">
+        </div>
+         <div class="footer-2">
+          <div class="image-div-2">
+            <div class="right-div">
+              <div class="grey-font">BOOKUS</div>
+              <div class="download-font">Download our app</div>
+              <div class="d-flex">
+                <div class="bookus-div">Book unforgettable beauty and wellness experiences with the bookus mobile app - the best way to discover top-rated salons and saps</div>
+              </div>
+              <div class="d-flex">
+                <a href="https://play.google.com/store/apps/details?id=com.massage_now_user" target="_blank"><img src="../../../assets/images/1280px-Google_Play_Store_badge_EN 1.png"/></a>
+                <a href="https://apps.apple.com/us/app/the-bookus/id1548946462" target="_blank" class="ml-2"><img src="../../../assets/images/download-on-the-app-store-apple 1.png" /></a>
+              </div>
+            </div>
+
+
+          </div>
+
+          <img src="../../../assets/images/homepagePWA.png" width="100%">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

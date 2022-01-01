@@ -1,0 +1,41 @@
+<div class="page-layout" [ngClass]="{'d-flex': !ShowMobile}">
+    <div class="date-selection" [ngClass]="{'mb-5 pl-5': !ShowMobile}">
+        <app-common-date-picker (dateSelected)="dateSelected($event)"></app-common-date-picker>
+    </div>
+    <div [ngClass]="{'py-5 px-2 w-100': !ShowMobile}">
+      <div class="card-data">
+          <div class="row box-structure">
+            <!-- <ng-container *ngIf="false">
+              <div *ngFor="let item of timeData" class="card-dynamic col-md-4 col-sm-4 col-xs-4">
+                <div class="mat-card card-vertical" (click)="selectSpecificTime(item)" >
+                  <div class="card_outerImg">
+                    <img [src]="item.image" class="card-img-new" alt="rere" (error)="setDefaultPic($event)">
+                  </div>
+                  <h5 class="card_data_size float-left" >{{item?.slot | date : 'shortTime'}}</h5>
+                </div>
+                <app-dynamic-card [componentData]="categoryList.image" [componentImage]="categoryList"></app-dynamic-card>
+              </div>
+          </ng-container> -->
+
+            <div *ngFor="let item of timeData" class="card-dynamic">
+              <div class="mat-card card-vertical" (click)="selectSpecificTime(item)" >
+                  <h5 class="card_data_size float-left" >{{item?.slot | date : 'shortTime'}}</h5>
+              </div>
+            </div>
+          </div>
+      </div>
+      <!-- <div class="time-slots">
+          <div *ngFor="let item of timeData">
+              <div>
+                  <button type="button" class="btn btn-light">{{item.value | date : 'shortTime'}}</button>
+              </div>
+          </div>
+      </div> -->
+      <div class="custom-footer" (click)="sendRequest()">
+          <button class="btn btn-dark custom-button btn-lg btn-block" [ngStyle]="{'white-space': (!ShowMobile ? 'break-spaces' : '')}">
+              I did not find <br *ngIf="ShowMobile"> desired appointment time
+          </button>
+      </div>
+  </div>
+</div>
+

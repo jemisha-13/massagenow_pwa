@@ -1,0 +1,29 @@
+<div class="parentLoader"*ngIf="isLoading">
+  <app-custom-spinner></app-custom-spinner>
+</div>
+<div class="container mt-5 notification" *ngIf="!isLoading">
+  <div class="row">
+    <div class="col-md-6 col-sm-6 col-xs-12" *ngFor="let notifyItem of notificationList">
+      <div class="card mt-3">
+        <div class="card-body">
+          <div class="row align-items-center">
+            <div class="col-4">
+              <img src="../../../assets/images/bookus-new.png" class="imgstyle">
+            </div>
+            <div class="col-8">
+              <h5 class="card-title text">{{notifyItem.text}}.</h5>
+              <div class="outerdiv-text"><span class="card-text">{{notifyItem.createdAt |date}}</span>
+                <a class="btn btn-dark float-right" (click)="navigateTo(notifyItem.status)">Check</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="notificationList.length == 0">
+    <div class="col-12">
+      <app-skeleton skeletonData="No notification available"></app-skeleton>
+    </div>
+  </div>
+</div>
